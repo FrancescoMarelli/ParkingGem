@@ -11,7 +11,10 @@ RSpec.describe Parking do
         it "Se cuenta con una constante para representar si el aparcamiento tiene plazas libres" do
           expect(Parking::IS_FREE).to eq("Parking still has empty spots")
         end
-
+        
+        it "Se cuenta con una funcion para mostrar el estado de un aparcamiento (completo, plazas libres)" do
+        expect(Parking::status(10)).to eq(Parking::IS_FREE)
+        end
       end
 
   context "Parking::Data" do

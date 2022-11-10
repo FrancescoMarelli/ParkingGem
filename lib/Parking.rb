@@ -1,6 +1,7 @@
 require "Parking/version"
 require "Parking/Functions"
 require "Parking/Data"
+require "Parking/ParkingSpot"
 
 module Parking
   class Error < StandardError; end

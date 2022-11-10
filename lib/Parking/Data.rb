@@ -2,7 +2,7 @@ module Parking
 
     class Data
         #getter
-        attr_reader :accessibility, :security
+        attr_reader :accessibility, :security, :id
 
         ##
         def initialize(id, name, desc, type, n_spots, n_freespots, accessibility, security, spots) #

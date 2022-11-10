@@ -2,7 +2,7 @@ module Parking
 
     class Data
         #getter
-        attr_reader :accessibility, :security, :id
+        attr_reader :accessibility, :security, :id, :name
 
         ##
         def initialize(id, name, desc, type, n_spots, n_freespots, accessibility, security, spots) #
@@ -24,6 +24,12 @@ module Parking
                 @security = security
             else 
                 raise Exception.new "Wrong Argument: it has to be a value between 1 and 10"
+            end
+
+            if (name.is_a? String) then
+                @name = name
+            else 
+                raise Exception.new "Wrong Argument: it has to be a String"
             end
  
 

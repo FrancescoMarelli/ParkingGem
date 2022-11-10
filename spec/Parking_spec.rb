@@ -44,6 +44,11 @@ RSpec.describe Parking do
            end
 
            it "Todo aparcamiento tiene el atributo seguridad(1..10)" do
+            expect(@p.security).to eq(6)
+            expect(@p.security).not_to eq(3)
+            expect { @p.security(-1) }.to raise_error(ArgumentError)
+            expect { @p.security("diez") }.to raise_error(ArgumentError)
+            expect { @p.security(1.0) }.to raise_error(ArgumentError)   
            end
 
         end

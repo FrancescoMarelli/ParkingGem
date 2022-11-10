@@ -51,6 +51,15 @@ RSpec.describe Parking do
             expect { @p.security(1.0) }.to raise_error(ArgumentError)   
            end
 
+           it "Un aparcamiento tiene un atributo para su identificación" do
+           expect(@p.id).to eq(001)
+           expect(@p.id).not_to eq(000)
+           expect { @p.id(-1) }.to raise_error(ArgumentError)
+           expect { @p.id("diez") }.to raise_error(ArgumentError)
+           expect { @p.id(1.0) }.to raise_error(ArgumentError)  
+
+          end
+
         end
       end
 

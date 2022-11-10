@@ -1,6 +1,8 @@
 RSpec.describe Parking do
   before :all do
-    @p = Parking::Data.new(001,"Aparcamiento LL","Cubierto","moto", 50,50, 5, 4)
+    @parking_spot = Parking::ParkingSpot.new(2.0,2.8,1.9)
+    @p = Parking::Data.new(001,"Aparcamiento LL","Cubierto","moto", 50,50, 5, 4, @parking_spot)
+    @q = Parking::Data.new(001,"Aparcamiento SC","Abierto","coche", 50,10, 5, 10, @parking_spot)
 
   end
 
@@ -26,7 +28,9 @@ RSpec.describe Parking do
       context "Parking::Data" do
         context "Tiene una clase para almacenar los datos del aparcamiento" do
           it "Costructor" do
-            expect(d).not_to eq(nil)
+            expect(@p).not_to eq(nil)
+            expect(@p).not_to eq(@q)
+            expect(@p).to eq(@p)
           end
 
            it "Todo aparcamiento tiene el atributo de accesibilidad (1..5)" do

@@ -2,8 +2,8 @@ RSpec.describe Parking do
 
   before :all do
     @parking_spot = Parking::ParkingSpot.new(2.0,2.8,1.9)
-    @p = Parking::Data.new(001,"Aparcamiento LL","Cubierto","moto", 50, 50, 5, 6, @parking_spot)
-    @q = Parking::Data.new(001,"Aparcamiento SC","Abierto","coche", 50, 10, 3, 10, @parking_spot)
+    @p = Parking::Data.new(001,"Suarez","Cubierto","moto", 50, 50, 5, 6, @parking_spot)
+    @q = Parking::Data.new(001,"Cristo Diaz","Abierto","coche", 50, 10, 3, 10, @parking_spot)
   end
 
      it "Tiene un número de version: #{Parking::VERSION}" do
@@ -57,7 +57,13 @@ RSpec.describe Parking do
            expect { @p.id(-1) }.to raise_error(ArgumentError)
            expect { @p.id("diez") }.to raise_error(ArgumentError)
            expect { @p.id(1.0) }.to raise_error(ArgumentError)  
+          end
 
+          it "Un aparcamiento tiene un atributo para su nombre comercial" do
+          expect(@p.name).to eq("Suarez")
+          expect(@p.name).not_to eq("Houston")
+          expect { @p.name(-1) }.to raise_error(ArgumentError)
+          expect { @p.name(1.0) }.to raise_error(ArgumentError)
           end
 
         end

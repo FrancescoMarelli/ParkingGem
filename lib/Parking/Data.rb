@@ -2,16 +2,16 @@ module Parking
 
     class Data
         #getter
-        attr_reader :accessibility, :security, :id, :name
+        attr_reader :accessibility, :security, :id, :name, :desc
 
         ##
         def initialize(id, name, desc, type, n_spots, n_freespots, accessibility, security, spots) #
 
-            @@spots = Parking::ParkingSpot.new(spots.height, spots.lenght, spots.width)
-            if (id.is_a? Integer) then 
-              @id = id
-            else
+            @spots = Parking::ParkingSpot.new(spots.height, spots.lenght, spots.width)
+            if !(id.is_a? Integer) then 
                 raise Exception.new "Wrong Argument: it has to be a positive Integer"
+            else
+                @id = id
             end
 
             if (accessibility.is_a? Integer) && (accessibility >= 1 && accessibility <= 5) then
@@ -31,9 +31,14 @@ module Parking
             else 
                 raise Exception.new "Wrong Argument: it has to be a String"
             end
- 
 
-            
+            if (desc.is_a? String) then
+                if (desc == ("Cubierto" || "Aire libre" || "Mixto")) then
+                     @desc = desc
+                end
+           else
+               raise Exception.new "Wrong Argument: Possible arguments are Cubierto, Aire libre, Mixto"
+           end
 
         end
             

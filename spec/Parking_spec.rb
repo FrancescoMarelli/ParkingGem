@@ -2,8 +2,8 @@ RSpec.describe Parking do
 
   before :all do
     @parking_spot = Parking::ParkingSpot.new(2.0,2.8,1.9)
-    @p = Parking::Data.new(001,"Suarez","Cubierto","moto", 50, 50, 5, 6, @parking_spot)
-    @q = Parking::Data.new(001,"Cristo Diaz","Abierto","coche", 50, 10, 3, 10, @parking_spot)
+    @p = Parking::Data.new(001,"Suarez", "Cubierto", "moto", 50, 50, 5, 6, @parking_spot)
+    @q = Parking::Data.new(002,"Cristo Diaz","Aire libre","coche", 50, 10, 3, 10, @parking_spot)
   end
 
      it "Tiene un número de version: #{Parking::VERSION}" do
@@ -38,15 +38,18 @@ RSpec.describe Parking do
            it "Todo aparcamiento tiene el atributo de accesibilidad (1..5)" do
             expect(@p.accessibility).to eq(5)
             expect(@p.accessibility).not_to eq(3)
-            expect { @p.accessibility(-1) }.to raise_error(ArgumentError)
-            expect { @p.accessibility("diez") }.to raise_error(ArgumentError)
-            expect { @p.accessibility(1.0) }.to raise_error(ArgumentError)            
+            expect { @p.accessibility(-1) }.to raise_error(ArgumentError) #negativos
+            expect { @p.accessibility(6) }.to raise_error(ArgumentError) #fuera de rango
+            expect { @p.accessibility("diez") }.to raise_error(ArgumentError) #String
+            expect { @p.accessibility(1.0) }.to raise_error(ArgumentError) #Float    
            end
+           
 
            it "Todo aparcamiento tiene el atributo seguridad(1..10)" do
             expect(@p.security).to eq(6)
             expect(@p.security).not_to eq(3)
             expect { @p.security(-1) }.to raise_error(ArgumentError)
+            expect { @p.security(11) }.to raise_error(ArgumentError)
             expect { @p.security("diez") }.to raise_error(ArgumentError)
             expect { @p.security(1.0) }.to raise_error(ArgumentError)   
            end
@@ -66,8 +69,15 @@ RSpec.describe Parking do
           expect { @p.name(1.0) }.to raise_error(ArgumentError)
           end
 
+          it "Un aparcamiento tiene un atributo para su descripción (Cubierto - Aire libre - Mixto)" do
+             expect((@p.desc).is_a? Numeric).to eq(false)
+             expect((@p.desc).is_a? String).to eq(true)
+             expect((@p.desc).is_a? Hash).to eq(false)
+             expect((@p.desc).is_a? Array).to eq(false)
+
+
+           end
+          end
         end
       end
-
-end
 

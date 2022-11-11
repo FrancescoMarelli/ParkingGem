@@ -30,7 +30,8 @@ Or install it yourself as:
 ## Usage
 ```ruby
 First open a new Terminal, where you are going to run guard. So, move Parking/Parking directory, then run:
-    $ bundle exec guard
+```ruby
+$ bundle exec guard
 ```
 
 

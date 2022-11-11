@@ -7,7 +7,8 @@ module Parking
         ##
         def initialize(id, name, desc, type, n_spots, n_freespots, accessibility, security, spots) #
 
-            @spots = Parking::ParkingSpot.new(spots.height, spots.lenght, spots.width)
+            @spots = Parking::ParkingSpot.new(spots.height, spots.length, spots.width)
+            
             if !(id.is_a? Integer) then 
                 raise Exception.new "Wrong Argument: it has to be a positive Integer"
             else

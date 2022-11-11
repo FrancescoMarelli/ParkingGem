@@ -1,10 +1,11 @@
 RSpec.describe Parking do
 
   before :all do
+    # Intance of a parking spot and two parkings.
     @parking_spot = Parking::ParkingSpot.new(1.0,2.8,1.9)
-
-    @p = Parking::Data.new(001,"Suarez", "Cubierto", "motos", 50, 50, 5, 6, @parking_spot)
-    @q = Parking::Data.new(002,"Cristo Diaz","Aire libre", "coches", 50, 10, 3, 10, @parking_spot)
+    @motos = String.new("motos")
+    @p = Parking::Data.new(001,"Suarez", "Cubierto", @motos, 50, 50, 5, 6, @parking_spot)
+    @q = Parking::Data.new(002,"Cristo Diaz","Aire libre", "coches", 50, 0, 3, 10, @parking_spot)
 
   end
 
@@ -23,7 +24,8 @@ RSpec.describe Parking do
         end
         
         it "Se cuenta con una funcion para mostrar el estado de un aparcamiento (completo, plazas libres)" do
-        expect(Parking::status(10)).to eq(Parking::IS_FREE)
+        expect(Parking::status(@p.n_freespots)).to eq(Parking::IS_FREE)                     #check if result is correct
+        expect(Parking::status(@q.n_freespots)).to eq(Parking::IS_COMPLETE)                     #check if result is correct
         expect { Parking::status("10")}.to raise_error("Argument is incorrect") #strings
         expect { Parking::status(-10) }.to raise_error("Argument is incorrect")  #negativos
         end
@@ -35,6 +37,9 @@ RSpec.describe Parking do
             expect(@p).not_to eq(nil)
             expect(@p).not_to eq(@q)
             expect(@p).to eq(@p)
+            expect(@p.is_a? Parking::Data).to eq(true)
+            expect(@p.instance_of? Parking::Data).to eq(true)
+
           end
 
            it "Todo aparcamiento tiene el atributo de accesibilidad (1..5)" do
@@ -80,7 +85,7 @@ RSpec.describe Parking do
 
            it "Tiene un atributo para el tipo de aparcamiento (autobuses, bicicletas, coches, motos)" do
              expect((@p.type).is_a? Numeric).to eq(false)
-             #expect((@p.type).is_a? String).to eq(true) porque es nil? y no string
+             expect((@motos).is_a? String).to eq(true) 
              expect((@p.type).is_a? Hash).to eq(false)
              expect((@p.type).is_a? Array).to eq(false)
            end
@@ -99,7 +104,7 @@ RSpec.describe Parking do
              expect(@p.n_freespots).to eq(50)
              expect((@p.n_freespots).is_a? Integer).to eq(true)
              expect(@p.oc_spots).to eq(0)
-             expect(@q.oc_spots).to eq(40)
+             expect(@q.oc_spots).to eq(50)
             end
 
             it "Tiene un metodo para devolver el numero de plazas del aparcamiento" do
@@ -107,12 +112,12 @@ RSpec.describe Parking do
                expect((@p.n_spots).is_a? Integer).to eq(true)
             end
 
-            it "Tiene un m´etodo para devolver el n´umero de plazas libres del aparcamiento" do
+            it "Tiene un método para devolver el número de plazas libres del aparcamiento" do
               expect(@p.n_freespots).to eq(50)
               expect((@p.n_freespots).is_a? Integer).to eq(true)
            end
 
           end
         end
-      end
+end
 

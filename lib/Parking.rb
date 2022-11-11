@@ -3,6 +3,7 @@ require "Parking/Functions"
 require "Parking/Data"
 require "Parking/ParkingSpot"
 
+#.
 module Parking
   class Error < StandardError; end
   # Your code goes here...

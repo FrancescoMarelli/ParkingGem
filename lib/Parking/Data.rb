@@ -1,11 +1,15 @@
+#Module is to include the clas Data into the Module Parking: this way our objects are more incapsulated
 module Parking
-
+    
+    #Data class contains all parking data (attributes) like name, id, number of spots but also security or accessibility
+    #or some more complex data structure as ParkingSpot
     class Data
+
         #getter
         attr_reader :accessibility, :security, :id, :name, :desc, :type, :n_freespots, :n_spots, :oc_spots
 
-        ##
-        def initialize(id, name, desc, type, n_spots, n_freespots, accessibility, security, spots) #
+        #Constructor: it checks every variable if is correct
+        def initialize(id, name, desc, type, n_spots, n_freespots, accessibility, security, spots) 
 
             @spots = Parking::ParkingSpot.new(spots.height, spots.length, spots.width)
             
@@ -63,13 +67,10 @@ module Parking
                 raise Exception.new "Wrong Argument: it has to be a positive Integer"
             end
 
-            #Calcula occupied spots
             occupiedSpots
-
- 
-
         end
 
+        #This method calculates the total of occupied parking spots
         def occupiedSpots
             @oc_spots = @n_spots - @n_freespots
         end

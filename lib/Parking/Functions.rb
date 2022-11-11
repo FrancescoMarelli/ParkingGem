@@ -1,8 +1,11 @@
+#Module Parking includes two constants and a status function
 module Parking
-    IS_COMPLETE = "Parking is already full"
-    IS_FREE = "Parking still has empty spots"
+    #Constants
+    IS_COMPLETE = "Parking is already full"             #constant if parking is full
+    IS_FREE = "Parking still has empty spots"           #constant if parking has still free spots
 
-    def self.status(n) # <-
+    #self.status can calculate if the status of the parking is free or full
+    def self.status(n) 
         if (n.is_a? Numeric) && (n >= 0) then
             if(n > 0) then
                  @status = IS_FREE

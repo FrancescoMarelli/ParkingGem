@@ -28,7 +28,7 @@ Or install it yourself as:
     $ gem install Parking
 
 ## Usage
-```ruby
+
 First open a new Terminal, where you are going to run guard. So, move Parking/Parking directory, then run:
 ```ruby
 $ bundle exec guard

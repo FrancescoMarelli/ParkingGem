@@ -116,8 +116,8 @@ RSpec.describe Parking do
               expect(@p.n_freespots).to eq(50)
               expect((@p.n_freespots).is_a? Integer).to eq(true)
            end
-
           end
         end
 end
+
 

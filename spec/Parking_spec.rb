@@ -80,7 +80,7 @@ RSpec.describe Parking do
 
            it "Tiene un atributo para el tipo de aparcamiento (autobuses, bicicletas, coches, motos)" do
              expect((@p.type).is_a? Numeric).to eq(false)
-             #expect((@p.type).is_a? String).to eq(true)
+             #expect((@p.type).is_a? String).to eq(true) porque es nil? y no string
              expect((@p.type).is_a? Hash).to eq(false)
              expect((@p.type).is_a? Array).to eq(false)
            end
@@ -94,6 +94,21 @@ RSpec.describe Parking do
            expect((@parking_spot.length).is_a? String).to eq(false)
            expect((@parking_spot.height).is_a? String).to eq(false)
            end
+
+           it "Tiene un atributo para representar el conjunto de plazas libres y ocupadas" do 
+             expect(@p.n_freespots).to eq(50)
+             expect((@p.n_freespots).is_a? Integer).to eq(true)
+
+             expect(@p.n_spots).to eq(50)
+             expect((@p.n_spots).is_a? Integer).to eq(true)
+             
+             expect(@p.oc_spots).to eq(0)
+             expect(@q.oc_spots).to eq(40)
+            end
+
+            it "Tiene un metodo para devolver el numero de plazas del aparcamiento" do
+              
+            end
 
           end
         end

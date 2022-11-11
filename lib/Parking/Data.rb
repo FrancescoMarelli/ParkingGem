@@ -2,7 +2,7 @@ module Parking
 
     class Data
         #getter
-        attr_reader :accessibility, :security, :id, :name, :desc, :type
+        attr_reader :accessibility, :security, :id, :name, :desc, :type, :n_freespots, :n_spots, :oc_spots
 
         ##
         def initialize(id, name, desc, type, n_spots, n_freespots, accessibility, security, spots) #
@@ -50,6 +50,28 @@ module Parking
                     raise Exception.new "Wrong Argument: Possible arguments are: autobuses, bicicletas, coches, motos "
             end
 
+            if (n_spots.is_a? Integer) && (n_spots >= 0) then
+                @n_spots = n_spots
+                @oc_spots = n_spots 
+            else 
+                raise Exception.new "Wrong Argument: it has to be a positive Integer"
+            end
+
+            if (n_freespots.is_a? Integer) && (n_freespots >= 0) then
+                @n_freespots = n_freespots
+            else 
+                raise Exception.new "Wrong Argument: it has to be a positive Integer"
+            end
+
+            #Calcula occupied spots
+            occupiedSpots
+
+ 
+
+        end
+
+        def occupiedSpots
+            @oc_spots = @n_spots - @n_freespots
         end
             
     end

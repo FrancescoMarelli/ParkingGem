@@ -28,9 +28,11 @@ Or install it yourself as:
     $ gem install Parking
 
 ## Usage
-
+```ruby
 First open a new Terminal, where you are going to run guard. So, move Parking/Parking directory, then run:
- $ bundle exec guard 
+    $ bundle exec guard
+```
+
 
 then you will be able to see the results of the code on real time. If data is well introduced and how the errors are managed.
 

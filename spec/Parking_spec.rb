@@ -98,17 +98,19 @@ RSpec.describe Parking do
            it "Tiene un atributo para representar el conjunto de plazas libres y ocupadas" do 
              expect(@p.n_freespots).to eq(50)
              expect((@p.n_freespots).is_a? Integer).to eq(true)
-
-             expect(@p.n_spots).to eq(50)
-             expect((@p.n_spots).is_a? Integer).to eq(true)
-             
              expect(@p.oc_spots).to eq(0)
              expect(@q.oc_spots).to eq(40)
             end
 
             it "Tiene un metodo para devolver el numero de plazas del aparcamiento" do
-              
+               expect(@p.n_spots).to eq(50)
+               expect((@p.n_spots).is_a? Integer).to eq(true)
             end
+
+            it "Tiene un m´etodo para devolver el n´umero de plazas libres del aparcamiento" do
+              expect(@p.n_freespots).to eq(50)
+              expect((@p.n_freespots).is_a? Integer).to eq(true)
+           end
 
           end
         end

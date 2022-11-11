@@ -2,7 +2,7 @@ module Parking
 
     class Data
         #getter
-        attr_reader :accessibility, :security, :id, :name, :desc
+        attr_reader :accessibility, :security, :id, :name, :desc, :type
 
         ##
         def initialize(id, name, desc, type, n_spots, n_freespots, accessibility, security, spots) #
@@ -39,6 +39,15 @@ module Parking
            else
                raise Exception.new "Wrong Argument: Possible arguments are Cubierto, Aire libre, Mixto"
            end
+
+           
+           if (type.is_a? String) then
+                if(type  == ("autobuses" || "bicicletas" || "coches" || "motos")) then
+                     @type = type
+                end
+            else
+                    raise Exception.new "Wrong Argument: Possible arguments are: autobuses, bicicletas, coches, motos "
+            end
 
         end
             

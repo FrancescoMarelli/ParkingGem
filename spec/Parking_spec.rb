@@ -2,8 +2,8 @@ RSpec.describe Parking do
 
   before :all do
     @parking_spot = Parking::ParkingSpot.new(2.0,2.8,1.9)
-    @p = Parking::Data.new(001,"Suarez", "Cubierto", "moto", 50, 50, 5, 6, @parking_spot)
-    @q = Parking::Data.new(002,"Cristo Diaz","Aire libre","coche", 50, 10, 3, 10, @parking_spot)
+    @p = Parking::Data.new(001,"Suarez", "Cubierto", "motos", 50, 50, 5, 6, @parking_spot)
+    @q = Parking::Data.new(002,"Cristo Diaz","Aire libre", "coches", 50, 10, 3, 10, @parking_spot)
   end
 
      it "Tiene un número de version: #{Parking::VERSION}" do
@@ -75,14 +75,14 @@ RSpec.describe Parking do
              expect((@p.desc).is_a? Hash).to eq(false)
              expect((@p.desc).is_a? Array).to eq(false)
            end
-           
+
            it "Tiene un atributo para el tipo de aparcamiento (autobuses, bicicletas, coches, motos)" do
              expect((@p.type).is_a? Numeric).to eq(false)
-             expect((@p.type).is_a? String).to eq(true)
-             expect((@p.tyoe).is_a? Hash).to eq(false)
+             expect((@p.type).is_a? String).to eq(false)
+             expect((@p.type).is_a? Hash).to eq(false)
              expect((@p.type).is_a? Array).to eq(false)
-
            end
+
           end
         end
       end

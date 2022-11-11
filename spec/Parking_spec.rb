@@ -83,6 +83,15 @@ RSpec.describe Parking do
              expect((@p.type).is_a? Array).to eq(false)
            end
 
+           it "Tiene un atributo para representar el conjunto de plazas libres y ocupadas"
+           expect((@parking_spot.width).is_a? Numeric).to eq(true)
+           expect((@parking_spot.lenght).is_a? Numeric).to eq(true)
+           expect((@parking_spot.height).is_a? Numeric).to eq(true)
+
+           expect((@parking_spot.width).is_a? String).to eq(false)
+           expect((@parking_spot.lenght).is_a? String).to eq(false)
+           expect((@parking_spot.height).is_a? String).to eq(false)
+
           end
         end
       end

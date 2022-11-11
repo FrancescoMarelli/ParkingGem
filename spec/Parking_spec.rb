@@ -74,7 +74,13 @@ RSpec.describe Parking do
              expect((@p.desc).is_a? String).to eq(true)
              expect((@p.desc).is_a? Hash).to eq(false)
              expect((@p.desc).is_a? Array).to eq(false)
-
+           end
+           
+           it "Tiene un atributo para el tipo de aparcamiento (autobuses, bicicletas, coches, motos)" do
+             expect((@p.type).is_a? Numeric).to eq(false)
+             expect((@p.type).is_a? String).to eq(true)
+             expect((@p.tyoe).is_a? Hash).to eq(false)
+             expect((@p.type).is_a? Array).to eq(false)
 
            end
           end

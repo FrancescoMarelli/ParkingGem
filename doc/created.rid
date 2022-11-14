@@ -1,0 +1,17 @@
+Fri, 11 Nov 2022 16:11:47 +0000
+./Guardfile	Tue, 08 Nov 2022 10:30:03 +0000
+./Rakefile	Tue, 08 Nov 2022 10:15:18 +0000
+./LICENSE.txt	Tue, 08 Nov 2022 10:15:18 +0000
+./CODE_OF_CONDUCT.md	Tue, 08 Nov 2022 10:15:18 +0000
+./spec/spec_helper.rb	Thu, 10 Nov 2022 22:04:23 +0000
+./spec/Parking_spec.rb	Fri, 11 Nov 2022 16:10:59 +0000
+./lib/Parking.rb	Fri, 11 Nov 2022 15:53:40 +0000
+./lib/Parking/version.rb	Fri, 11 Nov 2022 15:53:40 +0000
+./lib/Parking/Functions.rb	Fri, 11 Nov 2022 15:53:40 +0000
+./lib/Parking/ParkingSpot.rb	Fri, 11 Nov 2022 15:53:40 +0000
+./lib/Parking/Data.rb	Fri, 11 Nov 2022 16:10:59 +0000
+./bin/setup	Tue, 08 Nov 2022 10:28:32 +0000
+./bin/console	Tue, 08 Nov 2022 10:15:18 +0000
+./Gemfile	Tue, 08 Nov 2022 10:15:18 +0000
+./README.md	Fri, 11 Nov 2022 16:10:59 +0000
+./Gemfile.lock	Tue, 08 Nov 2022 10:29:14 +0000

@@ -51,6 +51,16 @@ RSpec.describe Parking do
             expect(@v.width).not_to be_a_kind_of(String)
           end
 
+          it "Tiene un atributo con el peso en toneladas"
+            expect(@v.weight).to eq(23.8)
+            expect(@v.weight).to be_a(Numeric)
+            expect(@v.weight).to be_a_kind_of(Numeric)
+            expect(@v.weight).to be_an(Numeric)
+            expect(@v.weight).is_a?(Numeric)
+            expect(@v.weight).instance_of?(Numeric)
+            expect(@v.weight).not_to be_a_kind_of(String)
+         end
+
           it "Tiene un atributo con la longitud en metros" do 
             expect(@v.length).to eq(3.2)
             expect(@v.length).to be_a(Numeric)
@@ -61,6 +71,7 @@ RSpec.describe Parking do
             expect(@v.length).not_to be_a_kind_of(String)
 
           end
+
 
 
           it "Se obtiene una cadena con la información del vehículo correctamente formateada" do

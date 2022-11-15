@@ -6,6 +6,7 @@ RSpec.describe Parking do
     @p = Parking::Data.new(001,"Suarez", "Cubierto", "motos", 50, 50, 5, 6, @parking_spot)
     @q = Parking::Data.new(002,"Cristo Diaz","Aire libre", "coches", 50, 10, 3, 10, @parking_spot)
     @v = Parking::Vehiculo.new(001, 2.7, 1.4, 3.2, 23.8)
+    @v2 = Parking::Vehiculo.new(002, 2.7, 1.4, 3.2, 23.8)
 
 
   end
@@ -25,7 +26,8 @@ RSpec.describe Parking do
             expect(@v.id).not_to be_a(String)
             expect(@v.id).not_to be_a_kind_of(String)
             expect(@v.id).not_to be_an_instance_of(String)
-            expect(@v.id).to be_instance_of(Numeric)
+            expect(@v.id).not_to be_instance_of(Numeric)
+            expect(@v.id).to be_a(Numeric)
           end
 
 
@@ -33,6 +35,19 @@ RSpec.describe Parking do
             expect(@v.to_s).is_a? String
             expect(@v.to_s).instance_of? String
             expect((@v.to_s).is_a? Numeric).to eq(false)
+            expect((@v.to_s).instance_of? Numeric).to eq(false)
+            expect((@v.to_s).is_a? Integer).to eq(false)
+            expect((@v.to_s).instance_of? Integer).to eq(false)
+            expect((@v.to_s).is_a? Float).to eq(false)
+            expect((@v.to_s).instance_of? Float).to eq(false)
+            expect((@v.to_s).is_a? Array).to eq(false)
+            expect((@v.to_s).instance_of? Array).to eq(false)
+            expect((@v.to_s).is_a? Hash).to eq(false)
+            expect((@v.to_s).instance_of? Hash).to eq(false)
+            expect((@v.to_s).is_a? Symbol).to eq(false)
+            expect((@v.to_s).instance_of? Symbol).to eq(false)
+            expect((@v.to_s).is_a? Class).to eq(false)
+            expect((@v.to_s).instance_of? Class).to eq(false)
           end
 
         end
@@ -41,12 +56,16 @@ RSpec.describe Parking do
                 expect(@v.is_a? Parking::Vehiculo)
                 expect(@v.instance_of? Parking::Vehiculo)
                 expect(@v.class).to eq(Parking::Vehiculo)
+                expect(@v.class).to be(Parking::Vehiculo)
+                
               end
 
               it "Se espera que una instancia de la clase Vehículo sea un objeto (Object)" do
                 expect(@v.is_a? Object)
                 expect(@v.instance_of? Object)
                 expect(@v.class).is_a? Object
+                #expect(@v.class).to be_instance_of(Object)
+
               end
               
 

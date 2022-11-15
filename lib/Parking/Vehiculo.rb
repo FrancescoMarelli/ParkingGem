@@ -1,7 +1,7 @@
 module Parking
 
     class Vehiculo
-        attr_reader 
+        attr_reader :id
     
         def initialize(id, height, length, width, weight)
           if(id.is_a? Integer) then

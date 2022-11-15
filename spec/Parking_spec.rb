@@ -12,8 +12,13 @@ RSpec.describe Parking do
   end
 
   context "Representación de un Vehiculo - Parking::Vehiculo" do
+
         context "Atributos de la clase Vehiculo" do
+
           it "Tiene una clase para representar vehículos" do
+            expect(Parking::Vehiculo).to be_a(Class)
+            expect(Parking::Vehiculo.superclass).to eq(Object)
+            expect(Parking::Vehiculo.ancestors).to eq([Parking::Vehiculo, Object, Kernel, BasicObject])
           end
 
           it "Tiene un atributo para identificar al vehículo" do
@@ -72,8 +77,6 @@ RSpec.describe Parking do
 
           end
 
-
-
           it "Se obtiene una cadena con la información del vehículo correctamente formateada" do
             expect(@v.to_s).is_a? String
             expect(@v.to_s).instance_of? String
@@ -86,12 +89,16 @@ RSpec.describe Parking do
           end
 
         end
+
             context "Herencia de la clase Vehiculo" do
+
               it "Se espera que una instancia de la clase Vehículo sea un Vehículo" do
                 expect(@v.is_a? Parking::Vehiculo)
                 expect(@v.instance_of? Parking::Vehiculo)
-                expect(@v.class).to eq(Parking::Vehiculo)
+                expect(@v.class).to eq(Parking::Vehiculo) 
                 expect(@v.class).to be(Parking::Vehiculo)
+                expect(@v.class).to be == Parking::Vehiculo
+
                 
               end
 
@@ -100,6 +107,9 @@ RSpec.describe Parking do
                 expect(@v.instance_of? Object)
                 expect(@v.class).is_a? Object
                 expect(@v.class).not_to be_instance_of(Object)
+                expect(@v.class).to be_a_kind_of(Object)
+                expect(Parking::Vehiculo.superclass).to eq(Object)
+
 
               end
               
@@ -108,24 +118,50 @@ RSpec.describe Parking do
                 expect(@v.is_a? BasicObject)
                 expect(@v.instance_of? BasicObject)
                 expect(@v.class).is_a? BasicObject
+                expect(@v.class).to be_a_kind_of(BasicObject)
               end
 
               it "No se espera que una instancia de la clase Vehículo sea una cadena (String)" do
                 expect((@v).is_a? String).to eq(false)
                 expect(@v.instance_of? String).to eq(false)
                 expect((@v.class).is_a? String).to eq(false)
+                expect(@v.class).not_to be_instance_of(String)
+                expect(@v.class).not_to be_a_kind_of(String)
+                expect(@v.class).not_to be_an_instance_of(String)
               end
 
               it "No se espera que una instancia de la clase Vehículo sea un número (Numeric)" do
                 expect((@v).is_a? Numeric).to eq(false)
                 expect(@v.instance_of? Numeric).to eq(false)
                 expect((@v.class).is_a? Numeric).to eq(false)
+                expect(@v.class).not_to be_instance_of(Numeric)
+                expect(@v.class).not_to be_a_kind_of(Numeric)
+                expect(@v.class).not_to be_an_instance_of(Numeric)
+                expect(@v.class).not_to be_an(Numeric)
               end
 
-
             end
-    
+  end
+
+  context "Representación de un Vehículo de motor - Aparcamiento::Motor" do
+
+    context "Atributos de la clase Motor" do
+
+      it "Tiene una clase para representar vehículos de motor" do
+        expect(Parking::Motor).to be_a(Class)
+        expect(Parking::Motor).to be_a_kind_of(Class)
+        expect(Parking::Motor).to be_an_instance_of(Class)
+        expect(Parking::Motor).to be_instance_of(Class)
+        expect(Parking::Motor).to be_a(Class)
+        expect(Parking::Motor).to be_a_kind_of(Class)
+        expect(Parking::Motor).to be_an_instance_of(Class)
+        expect(Parking::Motor).to be_instance_of(Class)
       end
+
+    end
+    
+  end
+
 
      it "Tiene un número de version: #{Parking::VERSION}" do
        expect(Parking::VERSION).not_to be nil

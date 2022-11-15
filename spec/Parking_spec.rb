@@ -51,7 +51,7 @@ RSpec.describe Parking do
             expect(@v.width).not_to be_a_kind_of(String)
           end
 
-          it "Tiene un atributo con el peso en toneladas"
+          it "Tiene un atributo con el peso en toneladas" do
             expect(@v.weight).to eq(23.8)
             expect(@v.weight).to be_a(Numeric)
             expect(@v.weight).to be_a_kind_of(Numeric)

@@ -37,6 +37,8 @@ RSpec.describe Parking do
             expect(@v.height).to be_an(Numeric)
             expect(@v.height).not_to be_a(String)
             expect(@v.height).not_to be_a_kind_of(String)
+            expect(@v.height).instance_of?(Numeric)
+
           end
 
           it "Tiene un atributo con el ancho en metros" do  
@@ -46,7 +48,7 @@ RSpec.describe Parking do
             expect(@v.width).to be_an(Numeric)
             expect(@v.width).is_a?(Numeric)
             expect(@v.width).instance_of?(Numeric)
-            
+            expect(@v.width).not_to be_a_kind_of(String)
           end
 
 

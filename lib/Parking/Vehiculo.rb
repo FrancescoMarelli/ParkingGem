@@ -1,9 +1,9 @@
 module Parking
 
     class Vehiculo
-        attr_reader :id, :height
+        attr_reader :id, :height, :width
     
-        def initialize(id, height, length, width, weight)
+        def initialize(id, height, width, length, weight)
           if(id.is_a? Integer) then
              @id = id
          else

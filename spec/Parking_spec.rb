@@ -30,6 +30,24 @@ RSpec.describe Parking do
             expect(@v.id).to be_a(Numeric)
           end
 
+          it "Tiene un atributo para indentificar la altura del vehículo" do
+            expect(@v.height).to eq(2.7)
+            expect(@v.height).to be_a(Numeric)
+            expect(@v.height).to be_a_kind_of(Numeric)
+            expect(@v.height).to be_an(Numeric)
+            expect(@v.height).to be_an_instance_of(Numeric)
+            expect(@v.height).to be_instance_of(Numeric)
+            expect(@v.height).not_to be_a(String)
+            expect(@v.height).not_to be_a_kind_of(String)
+            expect(@v.height).not_to be_an_instance_of(String)
+            expect(@v.height).not_to be_instance_of(Integer)
+            expect(@v.height).to be_a(Integer)
+            expect(@v.height).to be_a_kind_of(Integer)
+            expect(@v.height).to be_an(Integer)
+            
+
+          end
+
 
           it "Se obtiene una cadena con la información del vehículo correctamente formateada" do
             expect(@v.to_s).is_a? String

@@ -1,12 +1,18 @@
 RSpec.describe Parking do
 
   before :all do
+
+    #Objetos p7
+    # Creando un nuevo parking p, q y un parking spot
     @parking_spot = Parking::ParkingSpot.new(1.0,2.8,1.9)
-    
     @p = Parking::Data.new(001,"Suarez", "Cubierto", "motos".to_s, 50, 50, 5, 6, @parking_spot)
     @q = Parking::Data.new(002,"Cristo Diaz","Aire libre", "coches", 50, 10, 3, 10, @parking_spot)
+
+    #Objetos p8
+    # Creando dos vehiculos, uno de ellos es un motor
     @v = Parking::Vehiculo.new(001, 2.7, 1.4, 3.2, 23.8)
-    @v2 = Parking::Vehiculo.new(002, 2.7, 1.4, 3.2, 23.8)
+
+    @m = Parking::Motor.new(2, 2, 125, 120)
 
 
   end
@@ -17,7 +23,9 @@ RSpec.describe Parking do
 
           it "Tiene una clase para representar vehículos" do
             expect(Parking::Vehiculo).to be_a(Class)
-            expect(Parking::Vehiculo.superclass).to eq(Object)
+            expect(Parking::Vehiculo).to be_a_kind_of Class
+            expect(Parking::Vehiculo).to be_an_instance_of(Class)
+            expect(Parking::Vehiculo).instance_of?(Class)
             expect(Parking::Vehiculo.ancestors).to eq([Parking::Vehiculo, Object, Kernel, BasicObject])
           end
 
@@ -152,17 +160,28 @@ RSpec.describe Parking do
         expect(Parking::Motor).to be_a_kind_of(Class)
         expect(Parking::Motor).to be_an_instance_of(Class)
         expect(Parking::Motor).to be_instance_of(Class)
-        expect(Parking::Motor).to be_a(Class)
-        expect(Parking::Motor).to be_a_kind_of(Class)
-        expect(Parking::Motor).to be_an_instance_of(Class)
-        expect(Parking::Motor).to be_instance_of(Class)
+        expect(Parking::Motor.ancestors).to include(Parking::Vehiculo)
       end
+
+      it "Constructor de la clase Motor" do
+        expect(Parking::Motor).to respond_to(:new).with(4).arguments
+        expect(@m).to be_a(Parking::Motor)
+        expect(@m).to be_a_kind_of(Parking::Motor)
+        expect(@m).to be_an_instance_of(Parking::Motor)
+        expect(@m).to be_instance_of(Parking::Motor)
+        expect(@m).is_a? Parking::Motor
+        expect(@m).instance_of? Parking::Motor
+        expect(@m).class == Parking::Motor
+        expect((@m).class).not_to eq(Parking::Vehiculo)
+      end
+
 
     end
     
   end
 
 
+    #Expectativas de la practica 7 de Aparcamiento
      it "Tiene un número de version: #{Parking::VERSION}" do
        expect(Parking::VERSION).not_to be nil
       end

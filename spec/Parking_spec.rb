@@ -5,8 +5,34 @@ RSpec.describe Parking do
 
     @p = Parking::Data.new(001,"Suarez", "Cubierto", "motos", 50, 50, 5, 6, @parking_spot)
     @q = Parking::Data.new(002,"Cristo Diaz","Aire libre", "coches", 50, 10, 3, 10, @parking_spot)
+    @v = Parking::Vehiculo.new(001, 2.7, 1.4, 3.2, 23.8)
+
 
   end
+
+  context "Representación de un Vehiculo - Parking::Vehiculo" do
+        context "Atributos de la clase Vehiculo" do
+          it "Tiene una clase para representar vehículos" do
+
+          end
+        end
+            context "Herencia de la clase Vehiculo" do
+              it "Se espera que una instancia de la clase Vehículo sea un Vehículo" do
+                expect(@v.is_a? Parking::Vehiculo)
+                expect(@v.instance_of? Parking::Vehiculo)
+                expect(@v.class).to eq(Parking::Vehiculo)
+              end
+
+              it "Se espera que una instancia de la clase Vehículo sea un objeto (Object)" do
+                expect(@v.is_a? Object)
+                expect(@v.instance_of? Object)
+                expect(@v.class).is_a? Object
+              end
+
+
+            end
+    
+      end
 
      it "Tiene un número de version: #{Parking::VERSION}" do
        expect(Parking::VERSION).not_to be nil
@@ -107,7 +133,7 @@ RSpec.describe Parking do
                expect((@p.n_spots).is_a? Integer).to eq(true)
             end
 
-            it "Tiene un m´etodo para devolver el n´umero de plazas libres del aparcamiento" do
+            it "Tiene un método para devolver el número de plazas libres del aparcamiento" do
               expect(@p.n_freespots).to eq(50)
               expect((@p.n_freespots).is_a? Integer).to eq(true)
            end

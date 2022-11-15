@@ -28,7 +28,7 @@ RSpec.describe Parking do
                 expect(@v.instance_of? Object)
                 expect(@v.class).is_a? Object
               end
-              
+
               it "Se espera que una instancia de la clase Vehículo sea un objeto básico(BasicObject)" do
                 expect(@v.is_a? BasicObject)
                 expect(@v.instance_of? BasicObject)
@@ -39,6 +39,12 @@ RSpec.describe Parking do
                 expect((@v).is_a? String).to eq(false)
                 expect(@v.instance_of? String).to eq(false)
                 expect((@v.class).is_a? String).to eq(false)
+              end
+              
+              it "No se espera que una instancia de la clase Vehículo sea un número (Numeric)" do
+                expect((@v).is_a? Numeric).to eq(false)
+                expect(@v.instance_of? Numeric).to eq(false)
+                expect((@v.class).is_a? Numeric).to eq(false)
               end
 
 

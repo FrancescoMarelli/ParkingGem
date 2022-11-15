@@ -15,6 +15,11 @@ RSpec.describe Parking do
           it "Tiene una clase para representar vehículos" do
 
           end
+
+          it "Se obtiene una cadea con la información del vehículo correctamente formateada" do
+            expect(@v.to_s).to eq("Vehicle id number: #{@id}, #{@height} m high, #{@length} m long, #{@width} m wide and #{@weight} tons")
+          end
+
         end
             context "Herencia de la clase Vehiculo" do
               it "Se espera que una instancia de la clase Vehículo sea un Vehículo" do
@@ -40,7 +45,7 @@ RSpec.describe Parking do
                 expect(@v.instance_of? String).to eq(false)
                 expect((@v.class).is_a? String).to eq(false)
               end
-              
+
               it "No se espera que una instancia de la clase Vehículo sea un número (Numeric)" do
                 expect((@v).is_a? Numeric).to eq(false)
                 expect(@v.instance_of? Numeric).to eq(false)
@@ -124,7 +129,7 @@ RSpec.describe Parking do
 
            it "Tiene un atributo para el tipo de aparcamiento (autobuses, bicicletas, coches, motos)" do
              expect((@p.type).is_a? Numeric).to eq(false)
-             #expect((@p.type).is_a? String).to eq(true) porque es nil? y no string
+             #expect((@q.type).is_a? String).to eq(true) #porque es nil? y no string
              expect((@p.type).is_a? Hash).to eq(false)
              expect((@p.type).is_a? Array).to eq(false)
            end

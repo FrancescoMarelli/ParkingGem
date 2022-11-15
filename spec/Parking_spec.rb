@@ -30,7 +30,7 @@ RSpec.describe Parking do
             expect(@v.id).to be_a(Numeric)
           end
 
-          it "Tiene un atributo para la altura del vehículo en metros" do
+          it "Tiene un atributo para la altura en metros" do
             expect(@v.height).to eq(2.7)
             expect(@v.height).to be_a(Numeric)
             expect(@v.height).to be_a_kind_of(Numeric)
@@ -49,6 +49,17 @@ RSpec.describe Parking do
             expect(@v.width).is_a?(Numeric)
             expect(@v.width).instance_of?(Numeric)
             expect(@v.width).not_to be_a_kind_of(String)
+          end
+
+          it "Tiene un atributo con la longitud en metros" do 
+            expect(@v.length).to eq(3.2)
+            expect(@v.length).to be_a(Numeric)
+            expect(@v.length).to be_a_kind_of(Numeric)
+            expect(@v.length).to be_an(Numeric)
+            expect(@v.length).is_a?(Numeric)
+            expect(@v.length).instance_of?(Numeric)
+            expect(@v.length).not_to be_a_kind_of(String)
+
           end
 
 

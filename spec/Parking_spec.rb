@@ -16,8 +16,10 @@ RSpec.describe Parking do
 
           end
 
-          it "Se obtiene una cadea con la información del vehículo correctamente formateada" do
-            expect(@v.to_s).to eq("Vehicle id number: #{@id}, #{@height} m high, #{@length} m long, #{@width} m wide and #{@weight} tons")
+          it "Se obtiene una cadena con la información del vehículo correctamente formateada" do
+            expect(@v.to_s).is_a? String
+            expect(@v.to_s).instance_of? String
+            expect((@v.to_s).is_a? Numeric).to eq(false)
           end
 
         end
@@ -33,6 +35,7 @@ RSpec.describe Parking do
                 expect(@v.instance_of? Object)
                 expect(@v.class).is_a? Object
               end
+              
 
               it "Se espera que una instancia de la clase Vehículo sea un objeto básico(BasicObject)" do
                 expect(@v.is_a? BasicObject)

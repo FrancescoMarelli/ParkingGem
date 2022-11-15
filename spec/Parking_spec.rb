@@ -13,8 +13,21 @@ RSpec.describe Parking do
   context "Representación de un Vehiculo - Parking::Vehiculo" do
         context "Atributos de la clase Vehiculo" do
           it "Tiene una clase para representar vehículos" do
-
           end
+
+          it "Tiene un atributo para identificar al vehículo" do
+            expect(@v.id).to eq(001)
+            expect(@v.id).to be_a(Integer)
+            expect(@v.id).to be_a_kind_of(Integer)
+            expect(@v.id).to be_an(Integer)
+            expect(@v.id).to be_an_instance_of(Integer)
+            expect(@v.id).to be_instance_of(Integer)
+            expect(@v.id).not_to be_a(String)
+            expect(@v.id).not_to be_a_kind_of(String)
+            expect(@v.id).not_to be_an_instance_of(String)
+            expect(@v.id).to be_instance_of(Numeric)
+          end
+
 
           it "Se obtiene una cadena con la información del vehículo correctamente formateada" do
             expect(@v.to_s).is_a? String

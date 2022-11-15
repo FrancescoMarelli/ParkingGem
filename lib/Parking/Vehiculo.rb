@@ -1,7 +1,7 @@
 module Parking
 
     class Vehiculo
-        attr_reader :id, :height, :length, :width, :weight
+        attr_reader 
     
         def initialize(id, height, length, width, weight)
           if(id.is_a? Integer) then
@@ -20,12 +20,14 @@ module Parking
             @width = width
             @weight = weight        
         end
+
         def to_s
-           p  "Vehicle id number: #{@id}, #{@height} m high, #{@length} m long, #{@width} m wide and #{@weight} tons"
+            "Vehicle id number: #{@id}, #{@height} m high, #{@length} m long, #{@width} m wide and #{@weight} tons"
         end
+        
     
     end
     
-    end
+end
     
     

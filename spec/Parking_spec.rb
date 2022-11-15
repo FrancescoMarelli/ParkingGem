@@ -2,8 +2,8 @@ RSpec.describe Parking do
 
   before :all do
     @parking_spot = Parking::ParkingSpot.new(1.0,2.8,1.9)
-
-    @p = Parking::Data.new(001,"Suarez", "Cubierto", "motos", 50, 50, 5, 6, @parking_spot)
+    
+    @p = Parking::Data.new(001,"Suarez", "Cubierto", "motos".to_s, 50, 50, 5, 6, @parking_spot)
     @q = Parking::Data.new(002,"Cristo Diaz","Aire libre", "coches", 50, 10, 3, 10, @parking_spot)
     @v = Parking::Vehiculo.new(001, 2.7, 1.4, 3.2, 23.8)
     @v2 = Parking::Vehiculo.new(002, 2.7, 1.4, 3.2, 23.8)
@@ -30,7 +30,7 @@ RSpec.describe Parking do
             expect(@v.id).to be_a(Numeric)
           end
 
-          it "Tiene un atributo para indentificar la altura del vehículo" do
+          it "Tiene un atributo para la altura del vehículo en metros" do
             expect(@v.height).to eq(2.7)
             expect(@v.height).to be_a(Numeric)
             expect(@v.height).to be_a_kind_of(Numeric)
@@ -44,20 +44,12 @@ RSpec.describe Parking do
           it "Se obtiene una cadena con la información del vehículo correctamente formateada" do
             expect(@v.to_s).is_a? String
             expect(@v.to_s).instance_of? String
-            expect((@v.to_s).is_a? Numeric).to eq(false)
-            expect((@v.to_s).instance_of? Numeric).to eq(false)
-            expect((@v.to_s).is_a? Integer).to eq(false)
-            expect((@v.to_s).instance_of? Integer).to eq(false)
-            expect((@v.to_s).is_a? Float).to eq(false)
-            expect((@v.to_s).instance_of? Float).to eq(false)
-            expect((@v.to_s).is_a? Array).to eq(false)
-            expect((@v.to_s).instance_of? Array).to eq(false)
-            expect((@v.to_s).is_a? Hash).to eq(false)
-            expect((@v.to_s).instance_of? Hash).to eq(false)
-            expect((@v.to_s).is_a? Symbol).to eq(false)
-            expect((@v.to_s).instance_of? Symbol).to eq(false)
-            expect((@v.to_s).is_a? Class).to eq(false)
-            expect((@v.to_s).instance_of? Class).to eq(false)
+            expect(@v.to_s).class() == String
+            expect(@v.to_s).kind_of? String
+            expect(@v.to_s).to be_a(String)
+            expect(@v.to_s).to be_a_kind_of(String)   
+            expect(@v.to_s).to be_an_instance_of(String)
+            expect(@v.to_s).to be_instance_of(String)
           end
 
         end
@@ -74,7 +66,7 @@ RSpec.describe Parking do
                 expect(@v.is_a? Object)
                 expect(@v.instance_of? Object)
                 expect(@v.class).is_a? Object
-                #expect(@v.class).to be_instance_of(Object)
+                expect(@v.class).not_to be_instance_of(Object)
 
               end
               
@@ -174,7 +166,7 @@ RSpec.describe Parking do
 
            it "Tiene un atributo para el tipo de aparcamiento (autobuses, bicicletas, coches, motos)" do
              expect((@p.type).is_a? Numeric).to eq(false)
-             #expect((@q.type).is_a? String).to eq(true) #porque es nil? y no string
+             expect((@q.type).is_a? String) #porque es nil? y no string
              expect((@p.type).is_a? Hash).to eq(false)
              expect((@p.type).is_a? Array).to eq(false)
            end

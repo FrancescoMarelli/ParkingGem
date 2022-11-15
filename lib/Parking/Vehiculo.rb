@@ -15,10 +15,25 @@ module Parking
             else
                 raise Exception.new (ArgumentError)
             end
-    
-            @length = length
-            @width = width
-            @weight = weight        
+            
+            if(length.is_a? Numeric) then
+                @length = length
+            else
+                raise Exception.new(ArgumentError)  
+            end
+
+            if(width.is_a? Numeric) then
+                @width = width
+            else
+                raise Exception.new(ArgumentError)
+            end
+
+            if(weight.is_a? Numeric) then
+                @weight = weight        
+            else    
+                raise Exception.new(ArgumentError)
+            end
+            
         end
 
         def to_s

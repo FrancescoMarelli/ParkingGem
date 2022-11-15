@@ -6,19 +6,23 @@ RSpec.describe Parking do
     @motos = String.new("motos")
     @p = Parking::Data.new(001,"Suarez", "Cubierto", @motos, 50, 50, 5, 6, @parking_spot)
     @q = Parking::Data.new(002,"Cristo Diaz","Aire libre", "coches", 50, 0, 3, 10, @parking_spot)
-    @v = Parking::Vehiculo.new(001, 2.7, 1.4, 3.2, 23.8)
+    @v = Parking::Vehiculo.new(001, 2.7, 1.4, 3.2, 23.8)  
   end
 
         context "Representación de un Vehiculo - Parking::Vehiculo" do
           context "Atributos de la clase Vehiculo" do
             it "Tiene una clase para representar vehículos" do
-              expect(@v.is_a? Parking::Vehiculo)
-              expect(@v.is_a? Class)
-              expect(@v.is_a? Object)
-              expect(@v.instance_of? Parking::Vehiculo)
-            end
 
+            end
           end
+              context "Herencia de la clase Vehiculo" do
+                it "Se espera que una instancia de la clase Vehículo sea un Vehículo" do
+                  expect(@v.is_a? Parking::Vehiculo)
+                  expect(@v.instance_of? Parking::Vehiculo)
+                  expect(@v.class).to eq(Parking::Vehiculo)
+                end
+              end
+      
         end
           
         it "Tiene un número de version: #{Parking::VERSION}" do

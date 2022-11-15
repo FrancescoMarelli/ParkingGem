@@ -28,6 +28,11 @@ RSpec.describe Parking do
                 expect(@v.instance_of? Object)
                 expect(@v.class).is_a? Object
               end
+              it "Se espera que una instancia de la clase Vehículo sea un objeto básico(BasicObject)" do
+                expect(@v.is_a? BasicObject)
+                expect(@v.instance_of? BasicObject)
+                expect(@v.class).is_a? BasicObject
+              end
 
 
             end

@@ -275,6 +275,13 @@ RSpec.describe Parking do
         expect(@m).to_not be_a_kind_of(String)
         expect(@m).to_not be_an(String)
       end
+
+      it "No se espera que una instancia de la clase Motor sea un número (Numeric)" do
+        expect(@m.is_a? Numeric).to eq(false)
+        expect(@m.instance_of? Numeric).to eq(false)
+        expect(@m).to_not be_a_kind_of(Numeric)
+        expect(@m).to_not be_an(Numeric)
+      end
     end
 
   end

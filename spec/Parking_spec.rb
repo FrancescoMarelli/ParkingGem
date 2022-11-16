@@ -106,8 +106,6 @@ RSpec.describe Parking do
                 expect(@v.class).to eq(Parking::Vehiculo) 
                 expect(@v.class).to be(Parking::Vehiculo)
                 expect(@v.class).to be == Parking::Vehiculo
-
-                
               end
 
               it "Se espera que una instancia de la clase Vehículo sea un objeto (Object)" do
@@ -117,8 +115,6 @@ RSpec.describe Parking do
                 expect(@v.class).not_to be_instance_of(Object)
                 expect(@v.class).to be_a_kind_of(Object)
                 expect(Parking::Vehiculo.superclass).to eq(Object)
-
-
               end
               
 
@@ -173,8 +169,19 @@ RSpec.describe Parking do
         expect(@m).instance_of? Parking::Motor
         expect(@m).class == Parking::Motor
         expect((@m).class).not_to eq(Parking::Vehiculo)
+        expect(@m).not_to be_instance_of(Parking::Vehiculo)
       end
 
+      it "Tiene un atributo para el numero de ruedas" do
+        expect(@m.wheels).to eq(2)
+        expect(@m.wheels).to be_a(Numeric)
+        expect(@m.wheels).to be_a_kind_of(Numeric)
+        expect(@m.wheels).to be_an(Numeric)
+        expect(@m.wheels).is_a?(Numeric)
+        expect(@m.wheels).instance_of?(Numeric)
+        expect(@m.wheels).not_to be_a_kind_of(String)
+
+      end
 
     end
     

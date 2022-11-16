@@ -476,7 +476,15 @@ RSpec.describe Parking do
           expect(Parking.class.instance_of?(BasicObject))
           expect(Parking.class.superclass).to be_a(BasicObject)
         end
-        
+
+        it "No se espera que un aparcamiento sea una clase (Class)" do
+          expect(Parking.instance_of?(Class)).to eq(false)
+          expect(Parking.is_a?(Class)).to eq(false)
+          expect(Parking).not_to be_a(Class)
+          expect(Parking).not_to be_a_kind_of(Class)
+          expect(Parking).not_to be_a_kind_of(Class)
+        end
+
       end
 
     end

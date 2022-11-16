@@ -458,6 +458,17 @@ RSpec.describe Parking do
           expect(@v.class).to be_a_kind_of(Module)
           expect(@m.class).to be_a_kind_of(Module)
         end
+
+        it "Se espera que un aparcamiento sea un objeto de la clase Object" do
+          expect(@v.class).to be_a_kind_of(Object)
+          expect(@m.class).to be_a_kind_of(Object)
+          expect(Parking.class).to be_a_kind_of(Object)
+          expect(Parking.class).to be_a(Object)
+          expect(Parking.class).instance_of?(Object)
+          expect(Parking.class.superclass).to be_a(Object)
+        end
+
+        it ""
       end
 
     end

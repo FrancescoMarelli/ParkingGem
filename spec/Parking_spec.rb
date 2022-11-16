@@ -5,9 +5,11 @@ RSpec.describe Parking do
     #Objetos p7
     # Creando un nuevo parking p, q y un parking spot
     @parking_spot = Parking::ParkingSpot.new(1.0,2.8,1.9)
-    @p = Parking::Data.new(001,"Suarez", "Cubierto", "motos".to_s, 50, 50, 5, 6, @parking_spot)
-    @q = Parking::Data.new(002,"Cristo Diaz","Aire libre", "coches", 50, 10, 3, 10, @parking_spot)
-    @r = Parking::Data.new(003,"Cristo ","Mixto", "autobuses", 50, 0, 3, 10, @parking_spot)
+    motos = 'motos'.to_s
+    coches = 'coches'.to_s
+    @p = Parking::Data.new(001,'Suarez', 'Cubierto', 'motos', 50, 50, 5, 6, @parking_spot)
+    @q = Parking::Data.new(002, 'Cristo Diaz', 'Aire libre', coches, 50, 10, 3, 10, @parking_spot)
+    @r = Parking::Data.new(003, 'Cristo', 'Mixto', 'autobuses', 50, 0, 3, 10, @parking_spot)
     @status = Parking::Functions.new(@p)
     @statusp2 = Parking::Functions.new(@q)
 
@@ -101,6 +103,7 @@ RSpec.describe Parking do
           end
 
           it "Se obtiene una cadena con la información del vehículo correctamente formateada" do
+            expect(@v.to_s).to eq("Vehiculo con id: 1, 2.7 m de altura, 1.4 m de ancho, 3.2 m de longitud y de peso: 23.8 t")
             expect(@v.to_s).is_a? String
             expect(@v.to_s).instance_of? String
             expect(@v.to_s).class() == String
@@ -404,6 +407,13 @@ RSpec.describe Parking do
               expect(@q.oc_spots).to eq(40)
             end
 
+            it "Tiene un método para obtener un a cadena con la información del aparcamiento correctamente formateada" do 
+              
+              expect(@p.to_s).to eq("1 - Suarez - Cubierto - coches - 50 - 0 - 5 - 6 - 1.0 - 2.8 - 1.9")
+              
+            
+            end
+
             it "Tiene un metodo para devolver el numero de plazas del aparcamiento" do
                expect(@p.n_spots).to eq(50)
                expect((@p.n_spots).is_a? Integer).to eq(true)
@@ -503,15 +513,15 @@ RSpec.describe Parking do
 
       context "Interfaz de las funcionalidades - Parking::Functions" do
 
-        it "Se cuenta con una constante para representar si el aparcamiento está completo" do
+        it "Existe una constante para representar si el aparcamiento está completo" do
           expect(Parking::IS_COMPLETE).to eq("Parking is already full")
         end
 
-        it "Se cuenta con una constante para representar si el aparcamiento tiene plazas libres" do
+        it "Existe una constante para representar si el aparcamiento tiene plazas libres" do
           expect(Parking::IS_FREE).to eq("Parking still has empty spots")
         end
         
-        it "Se cuenta con una funcion para mostrar el estado de un aparcamiento (completo, plazas libres)" do
+        it "Existe una funcion para mostrar el estado de un aparcamiento (completo, plazas libres)" do
           expect(@status.status).to eq(Parking::IS_FREE)
           expect(@statusp2.status).to eq(Parking::IS_COMPLETE)
           expect { @status.status}.not_to raise_error

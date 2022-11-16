@@ -40,7 +40,7 @@ module Parking
         end
 
         def to_s
-            "Vehicle id number: #{@id}, #{@height} m high, #{@length} m long, #{@width} m wide and #{@weight} tons"
+            "Vehiculo con id: #{@id}, #{@height} m de altura, #{@width} m de ancho, #{@length} m de longitud y de peso: #{@weight} t"
         end
         
         def n_instances

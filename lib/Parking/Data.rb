@@ -34,7 +34,7 @@ module Parking
             end
 
             if (desc.is_a? String) then
-                if (desc == ("Cubierto" || "Aire libre" || "Mixto")) then
+                if (desc == ('Cubierto' || 'Aire libre' || 'Mixto')) then
                      @desc = desc
                 end
            else
@@ -43,8 +43,9 @@ module Parking
 
            
            if (type.is_a? String) then
-                if(type  == ("autobuses" || "bicicletas" || "coches" || "motos")) then
+                if(type  == ('autobuses' || 'bicicletas' || 'coches' || 'motos')) then
                      @type = type
+                     
                 end
             else
                     raise Exception.new "Wrong Argument: Possible arguments are: autobuses, bicicletas, coches, motos "
@@ -70,6 +71,10 @@ module Parking
 
         def occupiedSpots
             @oc_spots = @n_spots - @n_freespots
+        end
+
+        def to_s    
+            "#{@id} - #{@name} - #{@desc} - #{@type} - #{@n_spots} - #{@n_freespots} - #{@accessibility} - #{@security} - #{@spots.height} - #{@spots.length} - #{@spots.width}"
         end
             
     end

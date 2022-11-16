@@ -252,6 +252,13 @@ RSpec.describe Parking do
         expect(@m).to be_an(Parking::Vehiculo)
       end
 
+      it "Se espera que una instancia de la clase Motor sea un objeto (Object)" do
+        expect(@m.is_a? Object)
+        expect(@m.instance_of? Object).to eq(false)
+        expect(@m).to be_a_kind_of(Object)
+        expect(@m).to be_an(Object)
+      end
+
     end
 
   end

@@ -1,7 +1,8 @@
 module Parking
 
     class Motor < Vehiculo
-        attr_reader :n_wheels
+        attr_reader :n_wheels, :n_seats
+        
 
         def initialize(n_wheels, n_seats, cc, max_speed)
             if n_wheels.is_a? Integer then

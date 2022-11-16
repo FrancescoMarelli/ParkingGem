@@ -225,7 +225,7 @@ RSpec.describe Parking do
       end
 
       it "Se obtiene una cadena con la información del vehículo a motor correctamente formateada" do
-        expect(@m.to_s).to eq("Vehículo de motor con 2 ruedas, 2 plazas y 125 cm³ de potencia")
+        expect(@m.to_s).to eq("Vehículo de motor con 2 ruedas, 2 asientos, 125 cm^3 de motor y 120 km/h como velocidad máxima")
         expect(@m.to_s).to be_a(String)
         expect(@m.to_s).to be_a_kind_of(String)
         expect(@m.to_s).to be_an_instance_of(String)

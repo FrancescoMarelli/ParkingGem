@@ -39,6 +39,10 @@ module Parking
 
         end
 
+        def to_s
+            "Vehículo de motor con #{@n_wheels} ruedas, #{@n_seats} asientos, #{@cc} cm^3 de motor y #{@max_speed} km/h como velocidad máxima"
+        end
+
 
     end
 end

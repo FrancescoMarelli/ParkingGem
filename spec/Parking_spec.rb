@@ -463,7 +463,7 @@ RSpec.describe Parking do
               expect(@p.class.superclass.superclass).to eq(BasicObject)
             end
 
-            it "No se espera que una instancia de la clase Data se un Vehículo" do
+            it "No se espera que una instancia de la clase Data sea un Vehículo (Vehiculo)" do
               expect(@p).not_to be_a(Parking::Vehiculo)
               expect(@q).not_to be_a(Parking::Vehiculo)
               expect(@r).not_to be_a(Parking::Vehiculo)
@@ -478,6 +478,23 @@ RSpec.describe Parking do
               expect(@r).not_to be_a(Parking::Vehiculo)
               expect(@p.class.superclass.superclass.superclass).not_to eq(Parking::Vehiculo)
             end
+
+            it "No se espera que una instancia de la clase Data sea un Vehículo de motor (Motor)" do
+              expect(@p).not_to be_a(Parking::Motor)
+              expect(@q).not_to be_a(Parking::Motor)
+              expect(@r).not_to be_a(Parking::Motor)
+              expect(@p).not_to be_a(Parking::Motor)
+              expect(@q).not_to be_a(Parking::Motor)
+              expect(@r).not_to be_a(Parking::Motor)
+              expect(@p).not_to be_a(Parking::Motor)
+              expect(@q).not_to be_a(Parking::Motor)
+              expect(@r).not_to be_a(Parking::Motor)
+              expect(@p).not_to be_a(Parking::Motor)
+              expect(@q).not_to be_a(Parking::Motor)
+              expect(@r).not_to be_a(Parking::Motor)
+              expect(@p.class.superclass.superclass.superclass).not_to eq(Parking::Motor)
+            end
+
 
           end
 

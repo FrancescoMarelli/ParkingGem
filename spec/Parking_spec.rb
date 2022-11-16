@@ -11,6 +11,8 @@ RSpec.describe Parking do
     #Objetos p8
     # Creando dos vehiculos, uno de ellos es un motor
     @v = Parking::Vehiculo.new(001, 2.7, 1.4, 3.2, 23.8)
+    @v2 = Parking::Vehiculo.new(002, 1.2, 1.4, 3.2, 28.8)
+    @v3   = Parking::Vehiculo.new(003, 1.2, 1.4, 3.2, 28.8)
 
     @m = Parking::Motor.new(2, 2, 125, 120)
 
@@ -151,10 +153,19 @@ RSpec.describe Parking do
               end
 
               it "Se espera que cada vez que se instancie un objeto de la clase Vehículo se incremente el contador de objetos de la clase" do
-                expect(@v.n_instances).to eq(2)
+                expect(@v.n_instances).to eq(4)
                 expect(@v.n_instances).to be_a(Numeric)
                 expect(@v.n_instances).to be_a_kind_of(Numeric)
                 expect(@v.n_instances).to be_an(Numeric)
+              end
+
+              it "Se espera que dos vehiculos sean iguales si tienen el mismo volumen" do
+                expect(@v == @v2).to eq(false)
+                expect(@v.eql? @v2).to eq(false)
+                expect(@v.equal? @v2).to eq(false)
+                expect(@v3 == @v2)
+                expect(@v3.eql? @v2)
+                expect(@v3.equal? @v2)
               end
 
             end

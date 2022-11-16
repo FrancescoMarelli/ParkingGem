@@ -46,6 +46,14 @@ module Parking
         def n_instances
                 @@n_instances += 1 
         end
+
+        def volumen
+            @height * @length * @width
+        end
+
+        def <=>(other)
+            @volumen <=> other.volumen
+        end
         
     
     end

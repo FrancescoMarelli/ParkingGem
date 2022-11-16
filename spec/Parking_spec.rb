@@ -493,6 +493,14 @@ RSpec.describe Parking do
           expect(Parking).not_to be_a_kind_of(Parking::Vehiculo)
         end
 
+        it "No se espera que un aparcamiento sea un vehículo a motor (Motor)" do
+          expect(Parking.instance_of?(Parking::Motor)).to eq(false)
+          expect(Parking.is_a?(Parking::Motor)).to eq(false)
+          expect(Parking).not_to be_a(Parking::Motor)
+          expect(Parking).not_to be_a_kind_of(Parking::Motor)
+          expect(Parking).not_to be_a_kind_of(Parking::Motor)
+        end
+
       end
 
     end

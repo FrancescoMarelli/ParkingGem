@@ -485,6 +485,14 @@ RSpec.describe Parking do
           expect(Parking).not_to be_a_kind_of(Class)
         end
 
+        it "No se espera que un aparcamiento sea un vehículo (Vehicle)" do
+          expect(Parking.instance_of?(Parking::Vehiculo)).to eq(false)
+          expect(Parking.is_a?(Parking::Vehiculo)).to eq(false)
+          expect(Parking).not_to be_a(Parking::Vehiculo)
+          expect(Parking).not_to be_a_kind_of(Parking::Vehiculo)
+          expect(Parking).not_to be_a_kind_of(Parking::Vehiculo)
+        end
+
       end
 
     end

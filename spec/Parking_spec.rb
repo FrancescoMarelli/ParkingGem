@@ -212,7 +212,16 @@ RSpec.describe Parking do
         expect(@m.cc).is_a?(Numeric)
         expect(@m.cc).instance_of?(Numeric)
         expect(@m.cc).not_to be_a_kind_of(String)
+      end
 
+      it "Tiene un atributo para la velocidad máxima en kilómetros por hora" do
+        expect(@m.max_speed).to eq(100)
+        expect(@m.max_speed).to be_a(Numeric)
+        expect(@m.max_speed).to be_a_kind_of(Numeric)
+        expect(@m.max_speed).to be_an(Numeric)
+        expect(@m.max_speed).is_a?(Numeric)
+        expect(@m.max_speed).instance_of?(Numeric)
+        expect(@m.max_speed).not_to be_a_kind_of(String)
       end
 
     end

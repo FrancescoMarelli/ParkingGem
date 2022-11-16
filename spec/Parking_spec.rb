@@ -233,7 +233,20 @@ RSpec.describe Parking do
       end
 
     end
-    
+    context "Herencia de la clase Motor" do
+
+      it "Se espera que una instancia de la clase Motor sea un vehículo de motor" do
+        expect((@m).is_a? Parking::Motor)
+        expect(@m.instance_of? Parking::Motor).to eq(true)
+        expect((@m).is_a? Parking::Motor).to eq(true)
+        expect(@m).to be_instance_of(Parking::Motor)
+        expect(@m).to be_a_kind_of(Parking::Motor)
+        expect(@m).to be_an_instance_of(Parking::Motor)
+        expect(@m).to be_an(Parking::Motor)
+      end
+
+    end
+
   end
 
 #

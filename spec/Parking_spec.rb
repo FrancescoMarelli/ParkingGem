@@ -150,6 +150,13 @@ RSpec.describe Parking do
                 expect(@v.class).not_to be_an(Numeric)
               end
 
+              it "Se espera que cada vez que se instancie un objeto de la clase Vehículo se incremente el contador de objetos de la clase" do
+                expect(@v.n_instances).to eq(2)
+                expect(@v.n_instances).to be_a(Numeric)
+                expect(@v.n_instances).to be_a_kind_of(Numeric)
+                expect(@v.n_instances).to be_an(Numeric)
+              end
+
             end
   end
 

@@ -306,10 +306,13 @@ RSpec.describe Parking do
 
       it "Se espera que los Vehiculos de Motor sean comparables por el numero de plazas" do
         expect(@m <=> @m2)
-        expect(@m <=> @m3)
-        expect(@m3 <=> @m)
-        exoecct()
-
+        expect(@m2.equal? @m3)
+        expect(@m2.eql? @m3)
+        expect(@m2 == @m3)
+        expect(@m2 === @m3)
+        expect(@m.equal? @m3).to eq(false)
+        expect(@m2 <=> @m3)
+        expect(@m <=> @m3).to eq(-1)
       end
 
     end

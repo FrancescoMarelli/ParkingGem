@@ -43,6 +43,9 @@ module Parking
             "Vehículo de motor con #{@n_wheels} ruedas, #{@n_seats} asientos, #{@cc} cm^3 de motor y #{@max_speed} km/h como velocidad máxima"
         end
 
+        def <=>(other)
+            @n_seats <=> other.n_seats
+        end
 
     end
 end

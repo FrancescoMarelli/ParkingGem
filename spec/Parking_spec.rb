@@ -17,6 +17,12 @@ RSpec.describe Parking do
 
   end
 
+#
+#
+#  EXPECTATIVAS DE LA CLASE VEHICULO
+#
+#
+
   context "Representación de un Vehiculo - Parking::Vehiculo" do
 
         context "Atributos de la clase Vehiculo" do
@@ -147,6 +153,12 @@ RSpec.describe Parking do
             end
   end
 
+#
+#
+# EXPECTATIVAS DE LA CLASE VEHICULO DE MOTOR
+#
+#
+
   context "Representación de un Vehículo de motor - Aparcamiento::Motor" do
 
     context "Atributos de la clase Motor" do
@@ -180,15 +192,28 @@ RSpec.describe Parking do
         expect(@m.n_wheels).is_a?(Numeric)
         expect(@m.n_wheels).instance_of?(Numeric)
         expect(@m.n_wheels).not_to be_a_kind_of(String)
+      end
 
+      it "Tiene un atributo para el número de plazas" do
+        expect(@m.n_seats).to eq(2)
+        expect(@m.n_seats).to be_a(Numeric)
+        expect(@m.n_seats).to be_a_kind_of(Numeric)
+        expect(@m.n_seats).to be_an(Numeric)
+        expect(@m.n_seats).is_a?(Numeric)
+        expect(@m.n_seats).instance_of?(Numeric)
+        expect(@m.n_seats).not_to be_a_kind_of(String)
       end
 
     end
     
   end
 
+#
+#     
+#    EXPECTATIVAS DE LA GEMA APARCAMIENTO
+#
+#
 
-    #Expectativas de la practica 7 de Aparcamiento
      it "Tiene un número de version: #{Parking::VERSION}" do
        expect(Parking::VERSION).not_to be nil
       end

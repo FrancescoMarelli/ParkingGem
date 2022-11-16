@@ -446,6 +446,22 @@ RSpec.describe Parking do
               expect(@r).kind_of? Object
               expect(@p.class.superclass).to eq(Object)
             end
+
+            it "Se espera que una instancia de la clase Data sea un objeto básico (BasicObject)" do
+              expect(@p).to be_a(BasicObject)
+              expect(@q).to be_a(BasicObject)
+              expect(@r).to be_a(BasicObject)
+              expect(@p).is_a? BasicObject
+              expect(@q).is_a? BasicObject
+              expect(@r).is_a? BasicObject
+              expect(@p).instance_of? BasicObject
+              expect(@q).instance_of? BasicObject
+              expect(@r).instance_of? BasicObject
+              expect(@p).kind_of? BasicObject
+              expect(@q).kind_of? BasicObject
+              expect(@r).kind_of? BasicObject
+              expect(@p.class.superclass.superclass).to eq(BasicObject)
+            end
           end
 
         end

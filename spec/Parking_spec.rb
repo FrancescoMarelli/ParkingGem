@@ -429,7 +429,22 @@ RSpec.describe Parking do
               expect(@p).kind_of? Parking::Data
               expect(@q).kind_of? Parking::Data
               expect(@r).kind_of? Parking::Data
-              
+            end
+            
+            it "Se espera que una instancia de la clase Data sea un objeto (Object)" do
+              expect(@p).to be_a(Object)
+              expect(@q).to be_a(Object)
+              expect(@r).to be_a(Object)
+              expect(@p).is_a? Object
+              expect(@q).is_a? Object
+              expect(@r).is_a? Object
+              expect(@p).instance_of? Object
+              expect(@q).instance_of? Object
+              expect(@r).instance_of? Object
+              expect(@p).kind_of? Object
+              expect(@q).kind_of? Object
+              expect(@r).kind_of? Object
+              expect(@p.class.superclass).to eq(Object)
             end
           end
 

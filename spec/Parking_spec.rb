@@ -250,6 +250,7 @@ RSpec.describe Parking do
         expect(@m.instance_of? Parking::Vehiculo).to eq(false)
         expect(@m).to be_a_kind_of(Parking::Vehiculo)
         expect(@m).to be_an(Parking::Vehiculo)
+        expect(@m.class.superclass).to eq(Parking::Vehiculo)
       end
 
       it "Se espera que una instancia de la clase Motor sea un objeto (Object)" do
@@ -257,8 +258,16 @@ RSpec.describe Parking do
         expect(@m.instance_of? Object).to eq(false)
         expect(@m).to be_a_kind_of(Object)
         expect(@m).to be_an(Object)
+        expect(@m.class.superclass.superclass).to eq(Object)
       end
 
+      it " Se espera que una instancia de la clase Motor sea un objeto básico (BasicObject)" do
+        expect(@m.is_a? BasicObject)
+        expect(@m.instance_of? BasicObject).to eq(false)
+        expect(@m).to be_a_kind_of(BasicObject)
+        expect(@m).to be_an(BasicObject)
+        expect(@m.class.superclass.superclass.superclass).to eq(BasicObject)
+      end
     end
 
   end

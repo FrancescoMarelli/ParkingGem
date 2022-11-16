@@ -204,6 +204,17 @@ RSpec.describe Parking do
         expect(@m.n_seats).not_to be_a_kind_of(String)
       end
 
+      it "Tiene un atributo para la potencia del motor en cm cubicos" do
+        expect(@m.cc).to eq(125)
+        expect(@m.cc).to be_a(Numeric)
+        expect(@m.cc).to be_a_kind_of(Numeric)
+        expect(@m.cc).to be_an(Numeric)
+        expect(@m.cc).is_a?(Numeric)
+        expect(@m.cc).instance_of?(Numeric)
+        expect(@m.cc).not_to be_a_kind_of(String)
+
+      end
+
     end
     
   end

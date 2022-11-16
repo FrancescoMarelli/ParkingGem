@@ -413,8 +413,26 @@ RSpec.describe Parking do
               expect(@p.n_freespots).to eq(50)
               expect((@p.n_freespots).is_a? Integer).to eq(true)
            end
-
           end
+
+          context "Herencia de la clase Parking::Data" do
+            it "Se espera que una instancia de la clase Data sean Parking::Data" do
+              expect(@p).to be_a(Parking::Data)
+              expect(@q).to be_a(Parking::Data)
+              expect(@r).to be_a(Parking::Data)
+              expect(@p).is_a? Parking::Data
+              expect(@q).is_a? Parking::Data
+              expect(@r).is_a? Parking::Data
+              expect(@p).instance_of? Parking::Data
+              expect(@q).instance_of? Parking::Data
+              expect(@r).instance_of? Parking::Data
+              expect(@p).kind_of? Parking::Data
+              expect(@q).kind_of? Parking::Data
+              expect(@r).kind_of? Parking::Data
+              
+            end
+          end
+
         end
       end
 

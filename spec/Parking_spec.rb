@@ -155,7 +155,7 @@ RSpec.describe Parking do
 
 #
 #
-# EXPECTATIVAS DE LA CLASE VEHICULO DE MOTOR
+#   EXPECTATIVAS DE LA CLASE VEHICULO DE MOTOR
 #
 #
 
@@ -215,7 +215,7 @@ RSpec.describe Parking do
       end
 
       it "Tiene un atributo para la velocidad máxima en kilómetros por hora" do
-        expect(@m.max_speed).to eq(100)
+        expect(@m.max_speed).to eq(120)
         expect(@m.max_speed).to be_a(Numeric)
         expect(@m.max_speed).to be_a_kind_of(Numeric)
         expect(@m.max_speed).to be_an(Numeric)

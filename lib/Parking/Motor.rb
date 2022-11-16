@@ -1,7 +1,7 @@
 module Parking
 
     class Motor < Vehiculo
-        attr_reader :n_wheels, :n_seats, :cc
+        attr_reader :n_wheels, :n_seats, :cc, :max_speed
 
 
         def initialize(n_wheels, n_seats, cc, max_speed)

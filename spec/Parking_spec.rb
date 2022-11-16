@@ -15,6 +15,8 @@ RSpec.describe Parking do
     @v3   = Parking::Vehiculo.new(003, 1.2, 1.4, 3.2, 28.8)
 
     @m = Parking::Motor.new(2, 2, 125, 120)
+    @m2 = Parking::Motor.new(4, 5, 250, 130)
+    @m3 = Parking::Motor.new(4, 5, 500, 160)
 
 
   end
@@ -164,6 +166,7 @@ RSpec.describe Parking do
                 expect(@v.eql? @v2).to eq(false)
                 expect(@v.equal? @v2).to eq(false)
                 expect(@v3 == @v2)
+                expect(@v3 <=> @v2)
                 expect(@v3.eql? @v2)
                 expect(@v3.equal? @v2)
               end
@@ -300,6 +303,15 @@ RSpec.describe Parking do
         expect(@m).to_not be_a_kind_of(Numeric)
         expect(@m).to_not be_an(Numeric)
       end
+
+      it "Se espera que los Vehiculos de Motor sean comparables por el numero de plazas" do
+        expect(@m <=> @m2)
+        expect(@m <=> @m3)
+        expect(@m3 <=> @m)
+        exoecct()
+
+      end
+
     end
 
   end

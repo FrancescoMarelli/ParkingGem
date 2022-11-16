@@ -66,8 +66,6 @@ module Parking
             #Calcula occupied spots
             occupiedSpots
 
- 
-
         end
 
         def occupiedSpots

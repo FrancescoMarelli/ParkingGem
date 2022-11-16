@@ -173,13 +173,13 @@ RSpec.describe Parking do
       end
 
       it "Tiene un atributo para el numero de ruedas" do
-        expect(@m.wheels).to eq(2)
-        expect(@m.wheels).to be_a(Numeric)
-        expect(@m.wheels).to be_a_kind_of(Numeric)
-        expect(@m.wheels).to be_an(Numeric)
-        expect(@m.wheels).is_a?(Numeric)
-        expect(@m.wheels).instance_of?(Numeric)
-        expect(@m.wheels).not_to be_a_kind_of(String)
+        expect(@m.n_wheels).to eq(2)
+        expect(@m.n_wheels).to be_a(Numeric)
+        expect(@m.n_wheels).to be_a_kind_of(Numeric)
+        expect(@m.n_wheels).to be_an(Numeric)
+        expect(@m.n_wheels).is_a?(Numeric)
+        expect(@m.n_wheels).instance_of?(Numeric)
+        expect(@m.n_wheels).not_to be_a_kind_of(String)
 
       end
 

@@ -462,6 +462,23 @@ RSpec.describe Parking do
               expect(@r).kind_of? BasicObject
               expect(@p.class.superclass.superclass).to eq(BasicObject)
             end
+
+            it "No se espera que una instancia de la clase Data se un Vehículo" do
+              expect(@p).not_to be_a(Parking::Vehiculo)
+              expect(@q).not_to be_a(Parking::Vehiculo)
+              expect(@r).not_to be_a(Parking::Vehiculo)
+              expect(@p).not_to be_a(Parking::Vehiculo)
+              expect(@q).not_to be_a(Parking::Vehiculo)
+              expect(@r).not_to be_a(Parking::Vehiculo)
+              expect(@p).not_to be_a(Parking::Vehiculo)
+              expect(@q).not_to be_a(Parking::Vehiculo)
+              expect(@r).not_to be_a(Parking::Vehiculo)
+              expect(@p).not_to be_a(Parking::Vehiculo)
+              expect(@q).not_to be_a(Parking::Vehiculo)
+              expect(@r).not_to be_a(Parking::Vehiculo)
+              expect(@p.class.superclass.superclass.superclass).not_to eq(Parking::Vehiculo)
+            end
+
           end
 
         end

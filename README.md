@@ -66,27 +66,27 @@ In the project are distiguished the main 'Parking/bin', 'Parking/doc', 'Parking/
         c. doc contains the documentation part through rdoc and commenting all files.
         d. tdd is a merged branch which will contain the final result of doc and dev into all one.
 
-    The merge has been done like follows:
-        Coding and tdd into dev
-        Then we move to doc branch to generate documentation
-        ```bash
-        $ git checkout doc
-        ```
-        ```bash
-        $ rdoc 
-        ```
-        Then we merge it with dev
-        ```bash
-        $ git merge doc
-        ```
-        Then we move to tdd
-        ```bash
-        $ git checkout tdd
-        ```
-        Now we merge the last version (doc+dev) into tdd to have the final version
-        ```bash
-        $ git merge tdd
-        ```
+        The merge has been done like follows:
+            Coding and tdd into dev,
+            Then we move to doc branch to generate documentation:
+            ```bash
+            $ git checkout doc
+            ```
+            ```bash
+            $ rdoc 
+            ```
+            Then we merge it with dev:
+            ```bash
+            $ git merge doc
+            ```
+            Then we move to tdd:
+            ```bash
+            $ git checkout tdd
+            ```
+            Now we merge the last version (doc+dev) into tdd to have the final version:
+            ```bash
+            $ git merge tdd
+            ```
 
 
     

@@ -4,16 +4,27 @@ module Parking
     IS_COMPLETE = "Parking is already full"             #constant if parking is full
     IS_FREE = "Parking still has empty spots"           #constant if parking has still free spots
 
-    #self.status can calculate if the status of the parking is free or full
-    def self.status(n) 
-        if (n.is_a? Numeric) && (n >= 0) then
-            if(n > 0) then
-                 @status = IS_FREE
+    class Functions 
+
+        attr_reader :status
+
+        def initialize(d)
+            if (d.is_a? Parking::Data) then
+                @data = d
             else
-                @status = IS_COMPLETE
+                raise Exception.new "Wrong Argument: it has to be a Parking::Data"
             end
-        else 
-            raise Exception.new "Argument is incorrect"
+        end
+
+
+        def status # <- this is a class method
+            if (@data.n_freespots == @data.n_spots) then
+                 @status = IS_FREE
+            elsif (@data.n_freespots < @data.n_spots)    
+                @status = IS_COMPLETE
+            else
+                 raise Exception.new "Error in the status method"
+            end
         end
     end
 

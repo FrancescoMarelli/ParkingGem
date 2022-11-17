@@ -41,20 +41,15 @@ module Parking
                 raise Exception.new "Wrong Argument: it has to be a String"
             end
 
-            # description is about the condition of the parking: Mixed, Covered, Not Covered
-            if (desc.is_a? String) then
-                if (desc == ("Cubierto" || "Aire libre" || "Mixto")) then
+            if (desc.is_a? String) || (desc == ('Cubierto' || 'Aire libre' || 'Mixto')) then
                      @desc = desc
-                end
            else
                raise Exception.new "Wrong Argument: Possible arguments are Cubierto, Aire libre, Mixto"
            end
 
-           # this indicates which kind of vehicles are accepted in the parking
-           if (type.is_a? String) then
-                if(type  == ("autobuses" || "bicicletas" || "coches" || "motos")) then
+           
+           if (type.is_a? String) ||  (type  == ('autobuses' || 'bicicletas' || 'coches' || 'motos')) then
                      @type = type
-                end
             else
                     raise Exception.new "Wrong Argument: Possible arguments are: autobuses, bicicletas, coches, motos "
             end
@@ -80,6 +75,10 @@ module Parking
         #This method calculates the total of occupied parking spots
         def occupiedSpots
             @oc_spots = @n_spots - @n_freespots
+        end
+
+        def to_s    
+            "#{@id} - #{@name} - #{@desc} - #{@type} - #{@n_spots} - #{@n_freespots} - #{@accessibility} - #{@security} - #{@spots.height} - #{@spots.length} - #{@spots.width}"
         end
             
     end

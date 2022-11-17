@@ -33,20 +33,15 @@ module Parking
                 raise Exception.new "Wrong Argument: it has to be a String"
             end
 
-            if (desc.is_a? String) then
-                if (desc == ('Cubierto' || 'Aire libre' || 'Mixto')) then
+            if (desc.is_a? String) || (desc == ('Cubierto' || 'Aire libre' || 'Mixto')) then
                      @desc = desc
-                end
            else
                raise Exception.new "Wrong Argument: Possible arguments are Cubierto, Aire libre, Mixto"
            end
 
            
-           if (type.is_a? String) then
-                if(type  == ('autobuses' || 'bicicletas' || 'coches' || 'motos')) then
+           if (type.is_a? String) ||  (type  == ('autobuses' || 'bicicletas' || 'coches' || 'motos')) then
                      @type = type
-                     
-                end
             else
                     raise Exception.new "Wrong Argument: Possible arguments are: autobuses, bicicletas, coches, motos "
             end

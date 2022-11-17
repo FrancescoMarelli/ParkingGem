@@ -2,8 +2,8 @@ RSpec.describe Parking do
 
   before :all do
 
-    #Objetos p7
-    # Creando un nuevo parking p, q y un parking spot
+    #Objetos p7 
+    # Creando 3 parking: p, q, r, un parking spot parkingspot y dos objetos functions que tienen función de estado
     @parking_spot = Parking::ParkingSpot.new(1.0,2.8,1.9)
     motos = 'motos'.to_s
     coches = 'coches'.to_s
@@ -14,11 +14,12 @@ RSpec.describe Parking do
     @statusp2 = Parking::Functions.new(@q)
 
     #Objetos p8
-    # Creando dos vehiculos, uno de ellos es un motor
+    # Creando 3 instancias de vehículo
     @v = Parking::Vehiculo.new(001, 2.7, 1.4, 3.2, 23.8)
     @v2 = Parking::Vehiculo.new(002, 1.2, 1.4, 3.2, 28.8)
     @v3   = Parking::Vehiculo.new(003, 1.2, 1.4, 3.2, 28.8)
 
+    #Creando 3 instancia de tipo vehiculo a motor
     @m = Parking::Motor.new(2, 2, 125, 120)
     @m2 = Parking::Motor.new(4, 5, 250, 130)
     @m3 = Parking::Motor.new(4, 5, 500, 160)
@@ -50,7 +51,6 @@ RSpec.describe Parking do
             expect(@v.id).to eq(001)
             expect(@v.id).to be_a(Integer)
             expect(@v.id).to be_a_kind_of(Integer)
-            expect(@v.id).to be_an(Integer)
             expect(@v.id).to be_an_instance_of(Integer)
             expect(@v.id).to be_instance_of(Integer)
             expect(@v.id).not_to be_a(String)
@@ -64,7 +64,6 @@ RSpec.describe Parking do
             expect(@v.height).to eq(2.7)
             expect(@v.height).to be_a(Numeric)
             expect(@v.height).to be_a_kind_of(Numeric)
-            expect(@v.height).to be_an(Numeric)
             expect(@v.height).not_to be_a(String)
             expect(@v.height).not_to be_a_kind_of(String)
             expect(@v.height).instance_of?(Numeric)
@@ -75,7 +74,6 @@ RSpec.describe Parking do
             expect(@v.width).to eq(1.4)
             expect(@v.width).to be_a(Numeric)
             expect(@v.width).to be_a_kind_of(Numeric)
-            expect(@v.width).to be_an(Numeric)
             expect(@v.width).is_a?(Numeric)
             expect(@v.width).instance_of?(Numeric)
             expect(@v.width).not_to be_a_kind_of(String)
@@ -85,7 +83,6 @@ RSpec.describe Parking do
             expect(@v.weight).to eq(23.8)
             expect(@v.weight).to be_a(Numeric)
             expect(@v.weight).to be_a_kind_of(Numeric)
-            expect(@v.weight).to be_an(Numeric)
             expect(@v.weight).is_a?(Numeric)
             expect(@v.weight).instance_of?(Numeric)
             expect(@v.weight).not_to be_a_kind_of(String)
@@ -95,7 +92,6 @@ RSpec.describe Parking do
             expect(@v.length).to eq(3.2)
             expect(@v.length).to be_a(Numeric)
             expect(@v.length).to be_a_kind_of(Numeric)
-            expect(@v.length).to be_an(Numeric)
             expect(@v.length).is_a?(Numeric)
             expect(@v.length).instance_of?(Numeric)
             expect(@v.length).not_to be_a_kind_of(String)
@@ -110,8 +106,6 @@ RSpec.describe Parking do
             expect(@v.to_s).kind_of? String
             expect(@v.to_s).to be_a(String)
             expect(@v.to_s).to be_a_kind_of(String)   
-            expect(@v.to_s).to be_an_instance_of(String)
-            expect(@v.to_s).to be_instance_of(String)
           end
 
         end
@@ -158,7 +152,6 @@ RSpec.describe Parking do
                 expect((@v.class).is_a? Numeric).to eq(false)
                 expect(@v.class).not_to be_instance_of(Numeric)
                 expect(@v.class).not_to be_a_kind_of(Numeric)
-                expect(@v.class).not_to be_an_instance_of(Numeric)
                 expect(@v.class).not_to be_an(Numeric)
               end
 
@@ -166,7 +159,6 @@ RSpec.describe Parking do
                 expect(@v.n_instances).to eq(4)
                 expect(@v.n_instances).to be_a(Numeric)
                 expect(@v.n_instances).to be_a_kind_of(Numeric)
-                expect(@v.n_instances).to be_an(Numeric)
               end
 
               it "Se espera que dos vehiculos sean iguales si tienen el mismo volumen" do
@@ -217,7 +209,6 @@ RSpec.describe Parking do
         expect(@m.n_wheels).to eq(2)
         expect(@m.n_wheels).to be_a(Numeric)
         expect(@m.n_wheels).to be_a_kind_of(Numeric)
-        expect(@m.n_wheels).to be_an(Numeric)
         expect(@m.n_wheels).is_a?(Numeric)
         expect(@m.n_wheels).instance_of?(Numeric)
         expect(@m.n_wheels).not_to be_a_kind_of(String)
@@ -237,7 +228,6 @@ RSpec.describe Parking do
         expect(@m.cc).to eq(125)
         expect(@m.cc).to be_a(Numeric)
         expect(@m.cc).to be_a_kind_of(Numeric)
-        expect(@m.cc).to be_an(Numeric)
         expect(@m.cc).is_a?(Numeric)
         expect(@m.cc).instance_of?(Numeric)
         expect(@m.cc).not_to be_a_kind_of(String)
@@ -247,7 +237,6 @@ RSpec.describe Parking do
         expect(@m.max_speed).to eq(120)
         expect(@m.max_speed).to be_a(Numeric)
         expect(@m.max_speed).to be_a_kind_of(Numeric)
-        expect(@m.max_speed).to be_an(Numeric)
         expect(@m.max_speed).is_a?(Numeric)
         expect(@m.max_speed).instance_of?(Numeric)
         expect(@m.max_speed).not_to be_a_kind_of(String)
@@ -267,7 +256,6 @@ RSpec.describe Parking do
       it "Se espera que una instancia de la clase Motor sea un vehículo de motor" do
         expect((@m).is_a? Parking::Motor)
         expect(@m.instance_of? Parking::Motor).to eq(true)
-        expect((@m).is_a? Parking::Motor).to eq(true)
         expect(@m).to be_instance_of(Parking::Motor)
         expect(@m).to be_a_kind_of(Parking::Motor)
         expect(@m).to be_an_instance_of(Parking::Motor)
@@ -409,99 +397,66 @@ RSpec.describe Parking do
 
             it "Tiene un método para obtener un a cadena con la información del aparcamiento correctamente formateada" do 
               
-              expect(@p.to_s).to eq("1 - Suarez - Cubierto - coches - 50 - 0 - 5 - 6 - 1.0 - 2.8 - 1.9")
-              
+              expect(@p.to_s).to eq("1 - Suarez - Cubierto - motos - 50 - 50 - 5 - 6 - 1.0 - 2.8 - 1.9")
+              expect(@q.to_s).to eq("2 - Cristo Diaz - Aire libre - coches - 50 - 10 - 3 - 10 - 1.0 - 2.8 - 1.9")
+              expect(@p.to_s).not_to eq("3 - Suarez - Cubierto - motos - 50 - 50 - 5 - 6 - 1.0 - 2.8 - 1.9")
+              expect(@p.to_s).is_a? String
+              expect(@p.to_s).not_to eq(nil)
             
             end
 
             it "Tiene un metodo para devolver el numero de plazas del aparcamiento" do
                expect(@p.n_spots).to eq(50)
                expect((@p.n_spots).is_a? Integer).to eq(true)
+                expect(@p.n_spots).not_to eq(0)
+
             end
 
             it "Tiene un método para devolver el número de plazas libres del aparcamiento" do
               expect(@p.n_freespots).to eq(50)
               expect((@p.n_freespots).is_a? Integer).to eq(true)
+              expect(@p.n_freespots).not_to eq(0)
            end
           end
 
           context "Herencia de la clase Parking::Data" do
             it "Se espera que una instancia de la clase Data sean Parking::Data" do
               expect(@p).to be_a(Parking::Data)
-              expect(@q).to be_a(Parking::Data)
-              expect(@r).to be_a(Parking::Data)
               expect(@p).is_a? Parking::Data
-              expect(@q).is_a? Parking::Data
-              expect(@r).is_a? Parking::Data
               expect(@p).instance_of? Parking::Data
-              expect(@q).instance_of? Parking::Data
-              expect(@r).instance_of? Parking::Data
               expect(@p).kind_of? Parking::Data
-              expect(@q).kind_of? Parking::Data
-              expect(@r).kind_of? Parking::Data
+             
             end
             
             it "Se espera que una instancia de la clase Data sea un objeto (Object)" do
               expect(@p).to be_a(Object)
-              expect(@q).to be_a(Object)
-              expect(@r).to be_a(Object)
               expect(@p).is_a? Object
-              expect(@q).is_a? Object
-              expect(@r).is_a? Object
               expect(@p).instance_of? Object
-              expect(@q).instance_of? Object
-              expect(@r).instance_of? Object
               expect(@p).kind_of? Object
-              expect(@q).kind_of? Object
-              expect(@r).kind_of? Object
               expect(@p.class.superclass).to eq(Object)
             end
 
             it "Se espera que una instancia de la clase Data sea un objeto básico (BasicObject)" do
               expect(@p).to be_a(BasicObject)
-              expect(@q).to be_a(BasicObject)
-              expect(@r).to be_a(BasicObject)
               expect(@p).is_a? BasicObject
-              expect(@q).is_a? BasicObject
-              expect(@r).is_a? BasicObject
               expect(@p).instance_of? BasicObject
-              expect(@q).instance_of? BasicObject
-              expect(@r).instance_of? BasicObject
               expect(@p).kind_of? BasicObject
-              expect(@q).kind_of? BasicObject
-              expect(@r).kind_of? BasicObject
               expect(@p.class.superclass.superclass).to eq(BasicObject)
             end
 
             it "No se espera que una instancia de la clase Data sea un Vehículo (Vehiculo)" do
               expect(@p).not_to be_a(Parking::Vehiculo)
-              expect(@q).not_to be_a(Parking::Vehiculo)
-              expect(@r).not_to be_a(Parking::Vehiculo)
-              expect(@p).not_to be_a(Parking::Vehiculo)
-              expect(@q).not_to be_a(Parking::Vehiculo)
-              expect(@r).not_to be_a(Parking::Vehiculo)
-              expect(@p).not_to be_a(Parking::Vehiculo)
-              expect(@q).not_to be_a(Parking::Vehiculo)
-              expect(@r).not_to be_a(Parking::Vehiculo)
-              expect(@p).not_to be_a(Parking::Vehiculo)
-              expect(@q).not_to be_a(Parking::Vehiculo)
-              expect(@r).not_to be_a(Parking::Vehiculo)
+              expect((@p).is_a? Parking::Vehiculo).to eq(false)
+              expect((@p).instance_of? Parking::Vehiculo).to eq(false)
+              expect((@p).kind_of? Parking::Vehiculo).to eq(false)
               expect(@p.class.superclass.superclass.superclass).not_to eq(Parking::Vehiculo)
             end
 
             it "No se espera que una instancia de la clase Data sea un Vehículo de motor (Motor)" do
               expect(@p).not_to be_a(Parking::Motor)
-              expect(@q).not_to be_a(Parking::Motor)
-              expect(@r).not_to be_a(Parking::Motor)
-              expect(@p).not_to be_a(Parking::Motor)
-              expect(@q).not_to be_a(Parking::Motor)
-              expect(@r).not_to be_a(Parking::Motor)
-              expect(@p).not_to be_a(Parking::Motor)
-              expect(@q).not_to be_a(Parking::Motor)
-              expect(@r).not_to be_a(Parking::Motor)
-              expect(@p).not_to be_a(Parking::Motor)
-              expect(@q).not_to be_a(Parking::Motor)
-              expect(@r).not_to be_a(Parking::Motor)
+              expect((@p).is_a? Parking::Motor).to eq(false)
+              expect(@p).not_to be_instance_of(Parking::Motor)
+              expect((@p).kind_of? Parking::Motor).to eq(false)
               expect(@p.class.superclass.superclass.superclass).not_to eq(Parking::Motor)
             end
 
@@ -536,9 +491,7 @@ RSpec.describe Parking do
           expect(@status.class).to eq(Parking::Functions)
           expect(@statusp2.class).to eq(Parking::Functions)
           expect(@status).to be_an_instance_of(Parking::Functions)
-          expect(@statusp2).to be_an_instance_of(Parking::Functions)
           expect(@status).to be_a(Parking::Functions)
-          expect(@statusp2).to be_a(Parking::Functions)
           expect(@status).to be_a_kind_of(Parking::Functions)
         end
       end
@@ -583,14 +536,12 @@ RSpec.describe Parking do
           expect(Parking.is_a?(Parking::Vehiculo)).to eq(false)
           expect(Parking).not_to be_a(Parking::Vehiculo)
           expect(Parking).not_to be_a_kind_of(Parking::Vehiculo)
-          expect(Parking).not_to be_a_kind_of(Parking::Vehiculo)
         end
 
         it "No se espera que un aparcamiento sea un vehículo a motor (Motor)" do
           expect(Parking.instance_of?(Parking::Motor)).to eq(false)
           expect(Parking.is_a?(Parking::Motor)).to eq(false)
           expect(Parking).not_to be_a(Parking::Motor)
-          expect(Parking).not_to be_a_kind_of(Parking::Motor)
           expect(Parking).not_to be_a_kind_of(Parking::Motor)
         end
 

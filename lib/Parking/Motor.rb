@@ -1,9 +1,13 @@
+#
+#
 module Parking
-
+#
+#
     class Motor < Vehiculo
         attr_reader :n_wheels, :n_seats, :cc, :max_speed
 
-
+#
+#
         def initialize(n_wheels, n_seats, cc, max_speed)
             if n_wheels.is_a? Integer then
                 @n_wheels = n_wheels
@@ -38,11 +42,13 @@ module Parking
             end
 
         end
-
+#
+#
         def to_s
             "Vehículo de motor con #{@n_wheels} ruedas, #{@n_seats} asientos, #{@cc} cm^3 de motor y #{@max_speed} km/h como velocidad máxima"
         end
-
+#
+#
         def <=>(other)
             @n_seats <=> other.n_seats
         end

@@ -13,29 +13,45 @@ In the project are distiguished the main 'Parking/bin', 'Parking/doc', 'Parking/
     1. bin/ contains two files: console and setup. 
 
         a. setup is a scripy that contains all the automated setup is needed to be done 
-        b. console is a ruby file which includea require "bundler/setup"  (The setup script) require "Parking" (Gem)
+        b. console is a ruby file which includea require "bundler/setup"  (The setup script) 
+            require "Parking" (Gem)
 
-    2. doc/ is an embedded documentatoin generator for Ruby. After analyzing all source code it generate a structured collection of pages for ruby objects and method. It supports HTML, CHM, XML   output formats to be written
+    2. doc/ is an embedded documentatoin generator for Ruby. After analyzing all source code
+         it generate a structured collection of pages for ruby objects and method. It supports
+          HTML, CHM, XML   output formats to be written
 
     3. spec/ contains two important ruby files: spec_helper.rb and Parking_spec.rb
         a. spec_helper includes the Parking gem and the setup script.
-        b. Parking_spec.rb contains the whole list of expects that test the results for every method, attribute, variable, class and module of Parking Gem.
+        b. Parking_spec.rb contains the whole list of expects that test the results for every
+         method, attribute, variable, class and module of Parking Gem.
     
-    4. lib/ contains a  directory with all the classes created in this gem and an extra default file which goal is to include all classes into the module Parking.
+    4. lib/ contains a  directory with all the classes created in this gem and an extra default
+         file which goal is to include all classes into the module Parking.
         a. Parking.rb default file which goal is to include all classes into the module Parking.
         b. Parkig/
-            a. Data.rb : Contains all the data information about a Parking as Number of spots, Number of free spots, Description, Type of Parking, Identification number, Security and accessibility variables and also methods that return f.e. the number of the occupied spots or the string format overload method.
+            a. Data.rb : Contains all the data information about a Parking as Number of spots, 
+            Number of free spots, Description, Type of Parking, Identification number, Security 
+            and accessibility variables and also methods that return f.e. the number of the occupied 
+            spots or the string format overload method.
 
-            b. Functions.rb : contains constants as IS_FREE or IS_COMPLETE to check wheather the parking is full or empty. Then a class Function that is needed to check the status of the parking by checking it through those constants.
+            b. Functions.rb : contains constants as IS_FREE or IS_COMPLETE to check wheather the parking 
+            is full or empty. Then a class Function that is needed to check the status of the parking by 
+            checking it through those constants.
 
-            c. Vehiculo.rb: Is a father class to Motor. This class represent Vehicle as device suitable for driving on the roads affected by the Traffic Law. To_s method is also overloaded as <=> that is used through comparable module. Also a global variable as @@n_instances that keeps adding every new instance of a vehicle.
-            A method to calculate the volume of a vehicle also as vehicles have to be comparable through it: Same volume means vehicles are equal.
+            c. Vehiculo.rb: Is a father class to Motor. This class represent Vehicle as device suitable for 
+            driving on the roads affected by the Traffic Law. To_s method is also overloaded as <=> that is 
+            used through comparable module. Also a global variable as @@n_instances that keeps adding every 
+            new instance of a vehicle.
+            A method to calculate the volume of a vehicle also as vehicles have to be comparable through it:
+             Same volume means vehicles are equal.
 
-            d. Motor.rb: This class is inherited from Vehiculo. Attributes are number of wheels, number of seats, power in cm³ and max speed.
+            d. Motor.rb: This class is inherited from Vehiculo. Attributes are number of wheels, number of seats,
+             power in cm³ and max speed.
             To_s methos is overloades to print a correct format of the string.
             Also is included into Comparable module to compare two different Motor object through their number of seats.
 
-            e. ParkingSpot.rb: This class define a single parking spot through three attributes: Height, Length, Width. It also has a constructor and getters for all the attributes.
+            e. ParkingSpot.rb: This class define a single parking spot through three attributes: Height, Length, Width.
+             It also has a constructor and getters for all the attributes.
 
             f. version.rb : Contains the version number of the gem contained in a constant
 
@@ -44,31 +60,32 @@ In the project are distiguished the main 'Parking/bin', 'Parking/doc', 'Parking/
     Inside the directory Parking/Parking there is a git repository, remotely called ghp07.
     The branches that have been used are: dev, doc, tdd and main:
         a. main branch includes only the default initialization of the directory
-        b. dev branch is the one where all the tdd has been taken to: Expectations and the whole functional, class and test coding.
+        b. dev branch is the one where all the tdd has been taken to: Expectations and the whole functional, 
+        class and test coding.
         c. doc contains the documentation part through rdoc and commenting all files.
         d. tdd is a merged branch which will contain the final result of doc and dev into all one.
 
     The merge has been done like follows:
         a. coding and tdd into dev
         b. Then we move to doc branch to generate documentation
- ```bash
-git checkout 'doc'
-```
-```bash
-rdoc 
-```
+        ```bash
+        git checkout 'doc'
+        ```
+        ```bash
+        rdoc 
+        ```
         c. Then we merge it with dev
-```bash
-git merge 'doc'
-```
+        ```bash
+        git merge 'doc'
+        ```
         d. Then we move to tdd
-```bash
-git checkout 'tdd'
-```
+        ```bash
+        git checkout 'tdd'
+        ```
         e. Now we merge the last version (doc+dev) into tdd to have the final version
-```bash
-git merge 'tdd'
-```
+        ```bash
+        git merge 'tdd'
+        ```
 
 
     

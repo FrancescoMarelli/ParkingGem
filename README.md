@@ -31,27 +31,28 @@ In the project are distiguished the main 'Parking/bin', 'Parking/doc', 'Parking/
         b. Parkig/
             a. Data.rb : Contains all the data information about a Parking as Number of spots, 
             Number of free spots, Description, Type of Parking, Identification number, Security 
-            and accessibility variables and also methods that return f.e. the number of the occupied 
-            spots or the string format overload method.
+            and accessibility variables and also methods that return f.e. the number of the 
+            occupied spots or the string format overload method.
 
-            b. Functions.rb : contains constants as IS_FREE or IS_COMPLETE to check wheather the parking 
-            is full or empty. Then a class Function that is needed to check the status of the parking by 
-            checking it through those constants.
+            b. Functions.rb : contains constants as IS_FREE or IS_COMPLETE to check wheather the 
+            parking is full or empty. Then a class Function that is needed to check the status 
+            of the parking by checking it through those constants.
 
-            c. Vehiculo.rb: Is a father class to Motor. This class represent Vehicle as device suitable for 
-            driving on the roads affected by the Traffic Law. To_s method is also overloaded as <=> that is 
-            used through comparable module. Also a global variable as @@n_instances that keeps adding every 
-            new instance of a vehicle.
-            A method to calculate the volume of a vehicle also as vehicles have to be comparable through it:
-             Same volume means vehicles are equal.
+            c. Vehiculo.rb: Is a father class to Motor. This class represent Vehicle as device 
+            suitable for driving on the roads affected by the Traffic Law. To_s method is also 
+            overloaded as <=> that is used through comparable module. Also a global variable as
+            @@n_instances that keeps adding every new instance of a vehicle.
+            A method to calculate the volume of a vehicle also as vehicles have to be comparable
+            through it: Same volume means vehicles are equal.
 
-            d. Motor.rb: This class is inherited from Vehiculo. Attributes are number of wheels, number of seats,
-             power in cm³ and max speed.
+            d. Motor.rb: This class is inherited from Vehiculo. Attributes are number of wheels, 
+            number of seats, power in cm³ and max speed.
             To_s methos is overloades to print a correct format of the string.
-            Also is included into Comparable module to compare two different Motor object through their number of seats.
+            Also is included into Comparable module to compare two different Motor object 
+            through their number of seats.
 
-            e. ParkingSpot.rb: This class define a single parking spot through three attributes: Height, Length, Width.
-             It also has a constructor and getters for all the attributes.
+            e. ParkingSpot.rb: This class define a single parking spot through three attributes: 
+            Height, Length, Width. It also has a constructor and getters for all the attributes.
 
             f. version.rb : Contains the version number of the gem contained in a constant
 
@@ -66,25 +67,25 @@ In the project are distiguished the main 'Parking/bin', 'Parking/doc', 'Parking/
         d. tdd is a merged branch which will contain the final result of doc and dev into all one.
 
     The merge has been done like follows:
-        a. coding and tdd into dev
-        b. Then we move to doc branch to generate documentation
+        Coding and tdd into dev
+        Then we move to doc branch to generate documentation
         ```bash
-        git checkout 'doc'
+        $ git checkout doc
         ```
         ```bash
-        rdoc 
+        $ rdoc 
         ```
-        c. Then we merge it with dev
+        Then we merge it with dev
         ```bash
-        git merge 'doc'
+        $ git merge doc
         ```
-        d. Then we move to tdd
+        Then we move to tdd
         ```bash
-        git checkout 'tdd'
+        $ git checkout tdd
         ```
-        e. Now we merge the last version (doc+dev) into tdd to have the final version
+        Now we merge the last version (doc+dev) into tdd to have the final version
         ```bash
-        git merge 'tdd'
+        $ git merge tdd
         ```
 
 

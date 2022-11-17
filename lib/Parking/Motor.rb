@@ -4,6 +4,8 @@ module Parking
 #
 #
     class Motor < Vehiculo
+
+    include Comparable
         attr_reader :n_wheels, :n_seats, :cc, :max_speed
 
 #

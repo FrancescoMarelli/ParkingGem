@@ -1,12 +1,15 @@
+# Incluyendo la clase Vehiculo::Motor en el modulo Parking
 module Parking
 
+    #Definiendo clase Data que contiene a los datos de un aparcamiento
     class Data
-        #getter
+        # Getters de atributos de clase
         attr_reader :accessibility, :security, :id, :name, :desc, :type, :n_freespots, :n_spots, :oc_spots
 
-        ##
+        ##Constructor de los datos de un aparcamientos
         def initialize(id, name, desc, type, n_spots, n_freespots, accessibility, security, spots) #
 
+            # Spots almacena las dimensiones de una plaza
             @spots = Parking::ParkingSpot.new(spots.height, spots.length, spots.width)
             
             if !(id.is_a? Integer) then 
@@ -63,11 +66,11 @@ module Parking
             occupiedSpots
 
         end
-
+        #Calcula occupied spots
         def occupiedSpots
             @oc_spots = @n_spots - @n_freespots
         end
-
+        # Sobrecargando método de formateo de cadena de un vehículo a motor
         def to_s    
             "#{@id} - #{@name} - #{@desc} - #{@type} - #{@n_spots} - #{@n_freespots} - #{@accessibility} - #{@security} - #{@spots.height} - #{@spots.length} - #{@spots.width}"
         end

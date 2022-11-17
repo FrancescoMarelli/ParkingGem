@@ -1,16 +1,18 @@
 #
-#
+# Incluyendo la clase Vehiculo::Motor en el modulo Parking
 module Parking
 #
-#
+# Clase Vehiculo a Motor heredada de Vehiculo
     class Motor < Vehiculo
-
+# Incluyendo el Modulo Comparable para sobrecargar <=>
     include Comparable
+    #Getters
         attr_reader :n_wheels, :n_seats, :cc, :max_speed
 
 #
-#
+#   Constructor de Motor, con parametros = Numero de Ruedas, Numero de asientos, Potencia en cm³ y velocidad máxima
         def initialize(n_wheels, n_seats, cc, max_speed)
+            
             if n_wheels.is_a? Integer then
                 @n_wheels = n_wheels
             else
@@ -45,12 +47,12 @@ module Parking
 
         end
 #
-#
+#   Sobrecargando método de formateo de cadena de un vehículo a motor
         def to_s
             "Vehículo de motor con #{@n_wheels} ruedas, #{@n_seats} asientos, #{@cc} cm^3 de motor y #{@max_speed} km/h como velocidad máxima"
         end
 #
-#
+#   Operador de comparación sobrecargado
         def <=>(other)
             @n_seats <=> other.n_seats
         end

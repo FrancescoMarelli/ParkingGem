@@ -162,14 +162,15 @@ RSpec.describe Parking do
               end
 
               it "Se espera que dos vehiculos sean iguales si tienen el mismo volumen" do
-                expect(@v == @v2).to eq(false)
-                expect(@v.eql? @v2).to eq(false)
-                expect(@v.equal? @v2).to eq(false)
-                expect(@v3 == @v2)
-                expect(@v3 <=> @v2)
-                expect(@v3.eql? @v2)
-                expect(@v3.equal? @v2)
+                expect(@v3 <=> @v2).to eq(0)
+                expect(@v2 == @v3).to eq(true)
+                expect(@v3 <= @v).to eq(true)
+                expect(@v >= @v2).to  eq(true)
+                expect(@v2 < @v).to eq(true)
+                expect(@v3 > @v).to eq(false)
+                
               end
+
 
             end
   end
@@ -301,14 +302,13 @@ RSpec.describe Parking do
       end
 
       it "Se espera que los Vehiculos de Motor sean comparables por el numero de plazas" do
-        expect(@m <=> @m2)
-        expect(@m2.equal? @m3)
-        expect(@m2.eql? @m3)
-        expect(@m2 == @m3)
-        expect(@m2 === @m3)
-        expect(@m.equal? @m3).to eq(false)
-        expect(@m2 <=> @m3)
-        expect(@m <=> @m3).to eq(-1)
+        expect(@m <=> @m2).to eq(-1)
+        expect(@m2 == @m3).to eq(true)
+        expect(@m2 <=> @m3).to eq(0)
+        expect(@m <= @m3).to eq(true)
+        expect(@m2 >= @m).to  eq(true)
+        expect(@m < @m2).to eq(true)
+        expect(@m3 > @m).to eq(true)
       end
 
     end

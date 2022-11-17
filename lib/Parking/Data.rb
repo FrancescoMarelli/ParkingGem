@@ -1,17 +1,15 @@
-#Module is to include the clas Data into the Module Parking: this way our objects are more incapsulated
+# Incluyendo la clase Vehiculo::Motor en el modulo Parking
 module Parking
-    
-    #Data class contains all parking data (attributes) like name, id, number of spots but also security or accessibility
-    #or some more complex data structure as ParkingSpot
-    class Data
 
-        #getter
+    #Definiendo clase Data que contiene a los datos de un aparcamiento
+    class Data
+        # Getters de atributos de clase
         attr_reader :accessibility, :security, :id, :name, :desc, :type, :n_freespots, :n_spots, :oc_spots
 
-        #Constructor: it checks every variable if is correct
-        def initialize(id, name, desc, type, n_spots, n_freespots, accessibility, security, spots) 
+        ##Constructor de los datos de un aparcamientos
+        def initialize(id, name, desc, type, n_spots, n_freespots, accessibility, security, spots) #
 
-            # spots indicates the dimensions of a  single parking spot
+            # Spots almacena las dimensiones de una plaza
             @spots = Parking::ParkingSpot.new(spots.height, spots.length, spots.width)
             
             # id is the id number of the parking
@@ -71,12 +69,11 @@ module Parking
             # this calculate how many occupied spots there are in the parking
             occupiedSpots
         end
-
-        #This method calculates the total of occupied parking spots
+        #Calcula occupied spots
         def occupiedSpots
             @oc_spots = @n_spots - @n_freespots
         end
-
+        # Sobrecargando método de formateo de cadena de un vehículo a motor
         def to_s    
             "#{@id} - #{@name} - #{@desc} - #{@type} - #{@n_spots} - #{@n_freespots} - #{@accessibility} - #{@security} - #{@spots.height} - #{@spots.length} - #{@spots.width}"
         end

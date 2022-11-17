@@ -1,6 +1,8 @@
 module Parking
 
     class Vehiculo
+        include Comparable
+
         attr_reader :id, :height, :width, :length, :weight, :n_instances
 
         @@n_instances = 0

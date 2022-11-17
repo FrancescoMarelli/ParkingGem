@@ -44,7 +44,7 @@ RSpec.describe Parking do
             expect(Parking::Vehiculo).to be_a_kind_of Class
             expect(Parking::Vehiculo).to be_an_instance_of(Class)
             expect(Parking::Vehiculo).instance_of?(Class)
-            expect(Parking::Vehiculo.ancestors).to eq([Parking::Vehiculo, Object, Kernel, BasicObject])
+            expect(Parking::Vehiculo.ancestors).to eq([Parking::Vehiculo,Comparable, Object, Kernel, BasicObject])
           end
 
           it "Tiene un atributo para identificar al vehículo" do

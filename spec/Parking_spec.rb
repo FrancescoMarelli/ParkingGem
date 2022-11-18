@@ -113,17 +113,17 @@ RSpec.describe Parking do
             context "Herencia de la clase Vehiculo" do
 
               it "Se espera que una instancia de la clase Vehículo sea un Vehículo" do
-                expect(@v.is_a? Parking::Vehiculo)
-                expect(@v.instance_of? Parking::Vehiculo)
+                expect(@v.is_a? Parking::Vehiculo).to eq(true)
+                expect(@v.instance_of? Parking::Vehiculo).to eq(true)
                 expect(@v.class).to eq(Parking::Vehiculo) 
                 expect(@v.class).to be(Parking::Vehiculo)
                 expect(@v.class).to be == Parking::Vehiculo
               end
 
               it "Se espera que una instancia de la clase Vehículo sea un objeto (Object)" do
-                expect(@v.is_a? Object)
-                expect(@v.instance_of? Object)
-                expect(@v.class).is_a? Object
+                expect(@v.is_a? Object).to eq(true)
+                expect(@v.instance_of? Object).to eq(false)
+                expect((@v.class).is_a? Object).to eq(true)
                 expect(@v.class).not_to be_instance_of(Object)
                 expect(@v.class).to be_a_kind_of(Object)
                 expect(Parking::Vehiculo.superclass).to eq(Object)
@@ -255,35 +255,27 @@ RSpec.describe Parking do
     context "Herencia de la clase Motor" do
 
       it "Se espera que una instancia de la clase Motor sea un vehículo de motor" do
-        expect((@m).is_a? Parking::Motor)
+        expect(@m.is_a? Parking::Motor).to eq(true)
         expect(@m.instance_of? Parking::Motor).to eq(true)
-        expect(@m).to be_instance_of(Parking::Motor)
-        expect(@m).to be_a_kind_of(Parking::Motor)
         expect(@m).to be_an_instance_of(Parking::Motor)
         expect(@m).to be_an(Parking::Motor)
       end
 
       it "Se espera que una instancia de la clase Motor sea un Vehículo" do
-        expect(@m.is_a? Parking::Vehiculo)
+        expect(@m.is_a? Parking::Vehiculo).to eq(true)
         expect(@m.instance_of? Parking::Vehiculo).to eq(false)
-        expect(@m).to be_a_kind_of(Parking::Vehiculo)
-        expect(@m).to be_an(Parking::Vehiculo)
         expect(@m.class.superclass).to eq(Parking::Vehiculo)
       end
 
       it "Se espera que una instancia de la clase Motor sea un objeto (Object)" do
-        expect(@m.is_a? Object)
+        expect(@m.is_a? Object).to eq(true)
         expect(@m.instance_of? Object).to eq(false)
-        expect(@m).to be_a_kind_of(Object)
-        expect(@m).to be_an(Object)
         expect(@m.class.superclass.superclass).to eq(Object)
       end
 
       it "Se espera que una instancia de la clase Motor sea un objeto básico (BasicObject)" do
-        expect(@m.is_a? BasicObject)
+        expect(@m.is_a? BasicObject).to eq(true)
         expect(@m.instance_of? BasicObject).to eq(false)
-        expect(@m).to be_a_kind_of(BasicObject)
-        expect(@m).to be_an(BasicObject)
         expect(@m.class.superclass.superclass.superclass).to eq(BasicObject)
       end
 
@@ -429,18 +421,16 @@ RSpec.describe Parking do
             end
             
             it "Se espera que una instancia de la clase Data sea un objeto (Object)" do
-              expect(@p).to be_a(Object)
-              expect(@p).is_a? Object
-              expect(@p).instance_of? Object
-              expect(@p).kind_of? Object
+              expect((@p).is_a? Object).to eq(true)
+              expect((@p).instance_of? Object).to eq(false)
+              expect((@p).kind_of? Object).to eq(true)
               expect(@p.class.superclass).to eq(Object)
             end
 
             it "Se espera que una instancia de la clase Data sea un objeto básico (BasicObject)" do
-              expect(@p).to be_a(BasicObject)
-              expect(@p).is_a? BasicObject
-              expect(@p).instance_of? BasicObject
-              expect(@p).kind_of? BasicObject
+              expect((@p).is_a? BasicObject).to eq(true)
+              expect((@p).instance_of? BasicObject).to eq(false)
+              expect((@p).kind_of? BasicObject).to eq(true)
               expect(@p.class.superclass.superclass).to eq(BasicObject)
             end
 

@@ -371,10 +371,7 @@
           <div class="method-source-code" id="new-source">
             <pre><span class="ruby-comment"># File lib/Parking/Data.rb, line 12</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">id</span>, <span class="ruby-identifier">name</span>, <span class="ruby-identifier">desc</span>, <span class="ruby-identifier">type</span>, <span class="ruby-identifier">n_spots</span>, <span class="ruby-identifier">accessibility</span>, <span class="ruby-identifier">security</span>, <span class="ruby-identifier">spots</span>, <span class="ruby-identifier">min_spots</span>, <span class="ruby-identifier">n_minspots</span>, <span class="ruby-identifier">ppm</span>, <span class="ruby-identifier">distance_center</span>, <span class="ruby-identifier">vehicles</span>, <span class="ruby-identifier">h_in</span>, <span class="ruby-identifier">h_out</span>) <span class="ruby-comment">#</span>
-    <span class="ruby-comment">#</span>
-    <span class="ruby-comment"># P8</span>
-    <span class="ruby-comment">#</span>
-    
+  
     <span class="ruby-comment"># id is the id number of the parking</span>
     <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span>(<span class="ruby-identifier">id</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">Integer</span>) <span class="ruby-keyword">then</span> 
         <span class="ruby-identifier">raise</span> <span class="ruby-constant">Exception</span>.<span class="ruby-identifier">new</span> <span class="ruby-string">&quot;Wrong Argument: it has to be a positive Integer&quot;</span>
@@ -519,7 +516,7 @@
 
           
           <div class="method-source-code" id="calc_price-source">
-            <pre><span class="ruby-comment"># File lib/Parking/Data.rb, line 155</span>
+            <pre><span class="ruby-comment"># File lib/Parking/Data.rb, line 152</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">calc_price</span>
     <span class="ruby-ivar">@ppm</span>.<span class="ruby-identifier">to_f</span> <span class="ruby-operator">*</span> <span class="ruby-identifier">parking_time</span>.<span class="ruby-identifier">to_f</span>
 <span class="ruby-keyword">end</span></pre>
@@ -552,7 +549,7 @@
 
           
           <div class="method-source-code" id="each-source">
-            <pre><span class="ruby-comment"># File lib/Parking/Data.rb, line 160</span>
+            <pre><span class="ruby-comment"># File lib/Parking/Data.rb, line 157</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">each</span>    
     <span class="ruby-ivar">@vehicles</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">v</span><span class="ruby-operator">|</span> <span class="ruby-keyword">yield</span> <span class="ruby-identifier">v</span> }
 <span class="ruby-keyword">end</span></pre>
@@ -585,7 +582,7 @@
 
           
           <div class="method-source-code" id="occupiedSpots-source">
-            <pre><span class="ruby-comment"># File lib/Parking/Data.rb, line 126</span>
+            <pre><span class="ruby-comment"># File lib/Parking/Data.rb, line 123</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">occupiedSpots</span>
     <span class="ruby-ivar">@oc_spots</span> = <span class="ruby-ivar">@n_spots</span> <span class="ruby-operator">-</span> <span class="ruby-ivar">@n_freespots</span>
 <span class="ruby-keyword">end</span></pre>
@@ -618,7 +615,7 @@
 
           
           <div class="method-source-code" id="park-source">
-            <pre><span class="ruby-comment"># File lib/Parking/Data.rb, line 136</span>
+            <pre><span class="ruby-comment"># File lib/Parking/Data.rb, line 133</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">park</span>(<span class="ruby-identifier">vehicle</span>)
     <span class="ruby-keyword">if</span>(<span class="ruby-ivar">@n_freespots</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>) <span class="ruby-keyword">then</span>
         <span class="ruby-ivar">@vehicles</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">vehicle</span>)
@@ -657,7 +654,7 @@
 
           
           <div class="method-source-code" id="parking_time-source">
-            <pre><span class="ruby-comment"># File lib/Parking/Data.rb, line 147</span>
+            <pre><span class="ruby-comment"># File lib/Parking/Data.rb, line 144</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">parking_time</span>
     <span class="ruby-identifier">h_aux</span> = <span class="ruby-ivar">@h_out</span>.<span class="ruby-identifier">hour</span>.<span class="ruby-identifier">to_f</span> <span class="ruby-operator">-</span> <span class="ruby-ivar">@h_in</span>.<span class="ruby-identifier">hour</span>.<span class="ruby-identifier">to_f</span>
     <span class="ruby-identifier">m_aux</span> = <span class="ruby-ivar">@h_out</span>.<span class="ruby-identifier">min</span>.<span class="ruby-identifier">to_f</span> <span class="ruby-operator">-</span> <span class="ruby-ivar">@h_in</span>.<span class="ruby-identifier">min</span>.<span class="ruby-identifier">to_f</span>
@@ -693,7 +690,7 @@
 
           
           <div class="method-source-code" id="to_s-source">
-            <pre><span class="ruby-comment"># File lib/Parking/Data.rb, line 131</span>
+            <pre><span class="ruby-comment"># File lib/Parking/Data.rb, line 128</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">to_s</span>    
     <span class="ruby-node">&quot;#{@id} - #{@name} - #{@desc} - #{@type} - #{@n_spots} - #{@accessibility} - #{@security} - #{@spots[0]} - #{@spots[1]} - #{@spots[2]}, #{@min_spots[0]}, #{@min_spots[1]}, #{@min_spots[2]} , #{@n_minspots[3]}, #{@ppm}, #{@distance_center}, #{@vehicles}, #{@h_in}, #{@h_out}&quot;</span>
 <span class="ruby-keyword">end</span></pre>

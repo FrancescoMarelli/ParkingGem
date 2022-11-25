@@ -90,9 +90,9 @@
     
     <li ><a href="#method-i-3C-3D-3E">#&lt;=&gt;</a>
     
-    <li ><a href="#method-i-to_s">#to_s</a>
+    <li ><a href="#method-i-calc_volumen">#calc_volumen</a>
     
-    <li ><a href="#method-i-volumen">#volumen</a>
+    <li ><a href="#method-i-to_s">#to_s</a>
     
   </ul>
 </div>
@@ -107,6 +107,8 @@
 
   <section class="description">
     
+<p>Definiendo la clase vehículo</p>
+
   </section>
 
   
@@ -132,7 +134,7 @@
 
         <div class="method-description">
         
-        
+        <p>Getters atributos</p>
         
         </div>
       </div>
@@ -145,7 +147,7 @@
 
         <div class="method-description">
         
-        
+        <p>Getters atributos</p>
         
         </div>
       </div>
@@ -158,7 +160,7 @@
 
         <div class="method-description">
         
-        
+        <p>Getters atributos</p>
         
         </div>
       </div>
@@ -171,7 +173,7 @@
 
         <div class="method-description">
         
-        
+        <p>Getters atributos</p>
         
         </div>
       </div>
@@ -184,7 +186,7 @@
 
         <div class="method-description">
         
-        
+        <p>Getters atributos</p>
         
         </div>
       </div>
@@ -197,7 +199,7 @@
 
         <div class="method-description">
         
-        
+        <p>Getters atributos</p>
         
         </div>
       </div>
@@ -225,13 +227,13 @@
 
         <div class="method-description">
           
-          
+          <p>Constructor con id, altura, ancho, largo en m y peso en toneladas</p>
           
           
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File lib/Parking/Vehiculo.rb, line 10</span>
+            <pre><span class="ruby-comment"># File lib/Parking/Vehiculo.rb, line 16</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">id</span>, <span class="ruby-identifier">height</span>, <span class="ruby-identifier">width</span>, <span class="ruby-identifier">length</span>, <span class="ruby-identifier">weight</span>)
      <span class="ruby-keyword">if</span>(<span class="ruby-identifier">id</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">Integer</span>) <span class="ruby-keyword">then</span>
          <span class="ruby-ivar">@id</span> = <span class="ruby-identifier">id</span>
@@ -262,8 +264,10 @@
     <span class="ruby-keyword">else</span>    
         <span class="ruby-identifier">raise</span> <span class="ruby-constant">Exception</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">ArgumentError</span>)
     <span class="ruby-keyword">end</span>
-
+    <span class="ruby-ivar">@volumen</span> = <span class="ruby-identifier">calc_volumen</span>
     <span class="ruby-identifier">n_instances</span>
+
+
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -296,15 +300,48 @@
 
         <div class="method-description">
           
-          
+          <p>sobrecarga de &lt;=&gt; desde modulo comparable</p>
           
           
 
           
           <div class="method-source-code" id="3C-3D-3E-source">
-            <pre><span class="ruby-comment"># File lib/Parking/Vehiculo.rb, line 56</span>
+            <pre><span class="ruby-comment"># File lib/Parking/Vehiculo.rb, line 68</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">&lt;=&gt;</span>(<span class="ruby-identifier">other</span>)
-    <span class="ruby-ivar">@volumen</span> <span class="ruby-operator">&lt;=&gt;</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">volumen</span>
+    <span class="ruby-ivar">@volumen</span> <span class="ruby-operator">&lt;=&gt;</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">calc_volumen</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-calc_volumen" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">calc_volumen</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>metodo que calcula volumen de un vehiculo a través de los tres parametros de dimensión (x,y,z)</p>
+          
+          
+
+          
+          <div class="method-source-code" id="calc_volumen-source">
+            <pre><span class="ruby-comment"># File lib/Parking/Vehiculo.rb, line 63</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">calc_volumen</span>
+    <span class="ruby-ivar">@height</span> <span class="ruby-operator">*</span> <span class="ruby-ivar">@length</span> <span class="ruby-operator">*</span> <span class="ruby-ivar">@width</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -329,48 +366,15 @@
 
         <div class="method-description">
           
-          
+          <p>sobrecargando método <a href="Vehiculo.html#method-i-to_s"><code>to_s</code></a> para un correcto formateo de la cadena</p>
           
           
 
           
           <div class="method-source-code" id="to_s-source">
-            <pre><span class="ruby-comment"># File lib/Parking/Vehiculo.rb, line 44</span>
+            <pre><span class="ruby-comment"># File lib/Parking/Vehiculo.rb, line 53</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">to_s</span>
     <span class="ruby-node">&quot;Vehiculo con id: #{@id}, #{@height} m de altura, #{@width} m de ancho, #{@length} m de longitud y de peso: #{@weight} t&quot;</span>
-<span class="ruby-keyword">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-
-        
-      </div>
-
-    
-      <div id="method-i-volumen" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">volumen</span><span
-            class="method-args">()</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
-
-        <div class="method-description">
-          
-          
-          
-          
-
-          
-          <div class="method-source-code" id="volumen-source">
-            <pre><span class="ruby-comment"># File lib/Parking/Vehiculo.rb, line 52</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">volumen</span>
-    <span class="ruby-ivar">@height</span> <span class="ruby-operator">*</span> <span class="ruby-ivar">@length</span> <span class="ruby-operator">*</span> <span class="ruby-ivar">@width</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
           

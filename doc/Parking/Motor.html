@@ -105,6 +105,8 @@
 
   <section class="description">
     
+<p>Clase <a href="Vehiculo.html"><code>Vehiculo</code></a> a <a href="Motor.html"><code>Motor</code></a> heredada de <a href="Vehiculo.html"><code>Vehiculo</code></a></p>
+
   </section>
 
   
@@ -130,7 +132,7 @@
 
         <div class="method-description">
         
-        
+        <p>Getters</p>
         
         </div>
       </div>
@@ -143,7 +145,7 @@
 
         <div class="method-description">
         
-        
+        <p>Getters</p>
         
         </div>
       </div>
@@ -156,7 +158,7 @@
 
         <div class="method-description">
         
-        
+        <p>Getters</p>
         
         </div>
       </div>
@@ -169,7 +171,7 @@
 
         <div class="method-description">
         
-        
+        <p>Getters</p>
         
         </div>
       </div>
@@ -197,14 +199,15 @@
 
         <div class="method-description">
           
-          
+          <p>Constructor de <a href="Motor.html"><code>Motor</code></a>, con parametros = Numero de Ruedas, Numero de asientos, Potencia en cm³ y velocidad máxima</p>
           
           
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File lib/Parking/Motor.rb, line 13</span>
+            <pre><span class="ruby-comment"># File lib/Parking/Motor.rb, line 14</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">n_wheels</span>, <span class="ruby-identifier">n_seats</span>, <span class="ruby-identifier">cc</span>, <span class="ruby-identifier">max_speed</span>)
+    
     <span class="ruby-keyword">if</span> <span class="ruby-identifier">n_wheels</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">Integer</span> <span class="ruby-keyword">then</span>
         <span class="ruby-ivar">@n_wheels</span> = <span class="ruby-identifier">n_wheels</span>
     <span class="ruby-keyword">else</span>
@@ -269,13 +272,13 @@
 
         <div class="method-description">
           
-          
+          <p>Operador de comparación sobrecargado</p>
           
           
 
           
           <div class="method-source-code" id="3C-3D-3E-source">
-            <pre><span class="ruby-comment"># File lib/Parking/Motor.rb, line 54</span>
+            <pre><span class="ruby-comment"># File lib/Parking/Motor.rb, line 56</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">&lt;=&gt;</span>(<span class="ruby-identifier">other</span>)
     <span class="ruby-ivar">@n_seats</span> <span class="ruby-operator">&lt;=&gt;</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">n_seats</span>
 <span class="ruby-keyword">end</span></pre>
@@ -302,13 +305,13 @@
 
         <div class="method-description">
           
-          
+          <p>Sobrecargando método de formateo de cadena de un vehículo a motor</p>
           
           
 
           
           <div class="method-source-code" id="to_s-source">
-            <pre><span class="ruby-comment"># File lib/Parking/Motor.rb, line 49</span>
+            <pre><span class="ruby-comment"># File lib/Parking/Motor.rb, line 51</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">to_s</span>
     <span class="ruby-node">&quot;Vehículo de motor con #{@n_wheels} ruedas, #{@n_seats} asientos, #{@cc} cm^3 de motor y #{@max_speed} km/h como velocidad máxima&quot;</span>
 <span class="ruby-keyword">end</span></pre>

@@ -3,16 +3,14 @@ module Parking
 
     #Definiendo clase Data que contiene a los datos de un aparcamiento
     class Data
+
     include Enumerable
         # Getters de atributos de clase
         attr_reader :accessibility, :security, :id, :name, :desc, :type, :n_freespots, :n_spots, :oc_spots, :distance_center, :n_minspots, :min_spots, :ppm,:vehicles,  :h_in, :h_out
 
         ##Constructor de los datos de un aparcamientos
         def initialize(id, name, desc, type, n_spots, accessibility, security, spots, min_spots, n_minspots, ppm, distance_center, vehicles, h_in, h_out) #
-            #
-            # P8
-            #
-            
+          
             # id is the id number of the parking
             if !(id.is_a? Integer) then 
                 raise Exception.new "Wrong Argument: it has to be a positive Integer"
@@ -142,6 +140,7 @@ module Parking
             end
         end
 
+        #Calcula el tiempo de estancia de un vehículo
         def parking_time
             h_aux = @h_out.hour.to_f - @h_in.hour.to_f
             m_aux = @h_out.min.to_f - @h_in.min.to_f
@@ -149,11 +148,13 @@ module Parking
 
         end
 
+        #Calcula el precio de la estancia de un vehículo
         def calc_price
             @ppm.to_f * parking_time.to_f
         end
 
-        def each
+        #Calcula el precio de la estancia de un vehículo minusválido
+        def each    
             @vehicles.each { |v| yield v }
         end
 

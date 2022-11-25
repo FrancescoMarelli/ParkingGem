@@ -1,7 +1,8 @@
-module Parking
-
+module Parking 
+    #clase Airport heredada de Data
     class Airport < Data
-        attr_reader :n_plantas
+        #getter de n_floors
+        attr_reader :n_floors
 
         #Constructor de los Airpot
         def initialize(id, name, desc, type, n_spots, accessibility, security, spots, min_spots, n_minspots, ppm, distance_center, vehicles, h_in, h_out, n_floors) #
@@ -13,6 +14,7 @@ module Parking
             end
         end
 
+        #sobrecarga método to_s
         def to_s
             "#{@id} - #{@name} - #{@desc} - #{@type} - #{@n_spots} - #{@accessibility} - #{@security} - #{@spots[0]} - #{@spots[1]} - #{@spots[2]}, #{@min_spots[0]}, #{@min_spots[1]}, #{@min_spots[2]} , #{@n_minspots[3]}, #{@ppm}, #{@distance_center}, #{@vehicles}, #{@h_in}, #{@h_out}, #{@n_floors}"
         end

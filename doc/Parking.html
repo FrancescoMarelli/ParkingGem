@@ -62,17 +62,7 @@
     
     
     
-    <!-- Method Quickref -->
-<div id="method-list-section" class="nav-section">
-  <h3>Methods</h3>
-
-  <ul class="link-list" role="directory">
     
-    <li ><a href="#method-c-status">::status</a>
-    
-  </ul>
-</div>
-
   </div>
 </nav>
 
@@ -83,15 +73,19 @@
 
   <section class="description">
     
-<p>.</p>
+<p>Definiendo modulo parking e incluyendo ficheros del modulo</p>
 
-<p>Module is to include the clas <a href="Parking/Data.html"><code>Data</code></a> into the Module Parking: this way our objects are more incapsulated</p>
+<p>Incluyendo la clase Vehiculo::Motor en el modulo <a href="Parking.html"><code>Parking</code></a></p>
 
-<p>Module <a href="Parking.html"><code>Parking</code></a> includes two constants and a status function</p>
+<p>Incluyendo la clase de Funcionalidades en el modulo <a href="Parking.html"><code>Parking</code></a></p>
 
-<p>Module to include <a href="Parking/ParkingSpot.html"><code>ParkingSpot</code></a> in ParkingModule</p>
+<p>Incluyendo la clase Vehiculo::Motor en el modulo <a href="Parking.html"><code>Parking</code></a></p>
 
-<p>Versión</p>
+<p>Incluyendo la clase <a href="Parking/ParkingSpot.html"><code>ParkingSpot</code></a> en el modulo <a href="Parking.html"><code>Parking</code></a></p>
+
+<p>Incluyendo la clase <a href="Parking/Vehiculo.html"><code>Vehiculo</code></a> en el modulo <a href="Parking.html"><code>Parking</code></a></p>
+
+<p>Incluyendo version del proyecto en el modulo parking</p>
 
   </section>
 
@@ -110,17 +104,17 @@
       
         <dt id="IS_COMPLETE">IS_COMPLETE
         
-        <dd><p>Constants</p>
+        <dd><p>Constante si el parking está lleno</p>
         
       
         <dt id="IS_FREE">IS_FREE
         
-        <dd>
+        <dd><p>Constante si el parking está libre</p>
         
       
         <dt id="VERSION">VERSION
         
-        <dd>
+        <dd><p>Cadena de Version</p>
         
       
       </dl>
@@ -130,55 +124,6 @@
     
 
     
-     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
-       <header>
-         <h3>Public Class Methods</h3>
-       </header>
-
-    
-      <div id="method-c-status" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">status</span><span
-            class="method-args">(n)</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
-
-        <div class="method-description">
-          
-          <p>self.status can calculate if the status of the parking is free or full</p>
-          
-          
-
-          
-          <div class="method-source-code" id="status-source">
-            <pre><span class="ruby-comment"># File lib/Parking/Functions.rb, line 8</span>
-<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">status</span>(<span class="ruby-identifier">n</span>) 
-    <span class="ruby-keyword">if</span> (<span class="ruby-identifier">n</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">Numeric</span>) <span class="ruby-operator">&amp;&amp;</span> (<span class="ruby-identifier">n</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-value">0</span>) <span class="ruby-keyword">then</span>
-        <span class="ruby-keyword">if</span>(<span class="ruby-identifier">n</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>) <span class="ruby-keyword">then</span>
-             <span class="ruby-ivar">@status</span> = <span class="ruby-constant">IS_FREE</span>
-        <span class="ruby-keyword">else</span>
-            <span class="ruby-ivar">@status</span> = <span class="ruby-constant">IS_COMPLETE</span>
-        <span class="ruby-keyword">end</span>
-    <span class="ruby-keyword">else</span> 
-        <span class="ruby-identifier">raise</span> <span class="ruby-constant">Exception</span>.<span class="ruby-identifier">new</span> <span class="ruby-string">&quot;Argument is incorrect&quot;</span>
-    <span class="ruby-keyword">end</span>
-<span class="ruby-keyword">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-
-        
-      </div>
-
-    
-    </section>
-  
   </section>
 
 </main>

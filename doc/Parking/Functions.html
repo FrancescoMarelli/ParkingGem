@@ -77,6 +77,12 @@
     
     <li ><a href="#method-c-new">::new</a>
     
+    <li ><a href="#method-i-free_spots_for_disabled">#free_spots_for_disabled</a>
+    
+    <li ><a href="#method-i-is_good_for_disabled-3F">#is_good_for_disabled?</a>
+    
+    <li ><a href="#method-i-total_vehicles">#total_vehicles</a>
+    
   </ul>
 </div>
 
@@ -90,6 +96,8 @@
 
   <section class="description">
     
+<p>Clase <a href="Functions.html"><code>Functions</code></a> con función de status</p>
+
   </section>
 
   
@@ -115,7 +123,7 @@
 
         <div class="method-description">
         
-        
+        <p>Getter status</p>
         
         </div>
       </div>
@@ -143,19 +151,137 @@
 
         <div class="method-description">
           
-          
+          <p>Constructor</p>
           
           
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File lib/Parking/Functions.rb, line 9</span>
+            <pre><span class="ruby-comment"># File lib/Parking/Functions.rb, line 17</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">d</span>)
     <span class="ruby-keyword">if</span> (<span class="ruby-identifier">d</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">Parking</span><span class="ruby-operator">::</span><span class="ruby-constant">Data</span>) <span class="ruby-keyword">then</span>
         <span class="ruby-ivar">@data</span> = <span class="ruby-identifier">d</span>
     <span class="ruby-keyword">else</span>
         <span class="ruby-identifier">raise</span> <span class="ruby-constant">Exception</span>.<span class="ruby-identifier">new</span> <span class="ruby-string">&quot;Wrong Argument: it has to be a Parking::Data&quot;</span>
     <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-free_spots_for_disabled" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">free_spots_for_disabled</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Metodo que determina si numero de plazas minusvalidos libre de un aparcamiento</p>
+          
+          
+
+          
+          <div class="method-source-code" id="free_spots_for_disabled-source">
+            <pre><span class="ruby-comment"># File lib/Parking/Functions.rb, line 49</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">free_spots_for_disabled</span>
+    <span class="ruby-keyword">if</span>(<span class="ruby-ivar">@data</span>.<span class="ruby-identifier">n_minspots</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>) <span class="ruby-keyword">then</span>
+        <span class="ruby-ivar">@data</span>.<span class="ruby-identifier">n_minspots</span>
+    <span class="ruby-keyword">else</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-value">0</span>
+    <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-is_good_for_disabled-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">is_good_for_disabled?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Metodo que averigua si parking cumple con numero de plazas minusvalido minimas</p>
+          
+          
+
+          
+          <div class="method-source-code" id="is_good_for_disabled-3F-source">
+            <pre><span class="ruby-comment"># File lib/Parking/Functions.rb, line 37</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">is_good_for_disabled?</span>
+    <span class="ruby-keyword">if</span> (<span class="ruby-ivar">@data</span>.<span class="ruby-identifier">vehicles</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">Enumerable</span>) <span class="ruby-keyword">then</span>
+        <span class="ruby-keyword">if</span> (<span class="ruby-ivar">@data</span>.<span class="ruby-identifier">vehicles</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">Array</span>) <span class="ruby-keyword">then</span>
+            <span class="ruby-identifier">isok</span> = <span class="ruby-ivar">@data</span>.<span class="ruby-identifier">count</span> <span class="ruby-operator">/</span> <span class="ruby-value">40</span>
+            <span class="ruby-identifier">isok</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-ivar">@data</span>.<span class="ruby-identifier">n_minspots</span>
+        <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">else</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span>
+    <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-total_vehicles" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">total_vehicles</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Método que calcula numero total de vehiculos estacionados</p>
+          
+          
+
+          
+          <div class="method-source-code" id="total_vehicles-source">
+            <pre><span class="ruby-comment"># File lib/Parking/Functions.rb, line 58</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">total_vehicles</span>
+    <span class="ruby-ivar">@data</span>.<span class="ruby-identifier">vehicles</span>.<span class="ruby-identifier">size</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
           

@@ -4,6 +4,10 @@ require "Parking/Data"
 require "Parking/ParkingSpot"
 require "Parking/Vehiculo"
 require "Parking/Motor"
+require "Parking/Airport"
+require "Parking/TrainStation"
+
+
 
 #Definiendo modulo parking e incluyendo ficheros del modulo
 module Parking

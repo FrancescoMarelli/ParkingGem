@@ -1,5 +1,5 @@
 # Incluyendo la clase ParkingSpot en el modulo Parking
-module Parking ##
+module Parking 
 
     #Definiendo la clas Parking Spot
     class ParkingSpot 
@@ -25,6 +25,7 @@ module Parking ##
              else 
                 Exception.new "Wrong Argument: it has to be a positive Numeric"   
              end  
-        end     
-    end
-end
+        end  
+           
+    end # end of class ParkingSpot
+end # end of module Parking

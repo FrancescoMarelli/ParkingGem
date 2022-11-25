@@ -45,6 +45,8 @@ module Parking
             end
             @volumen = calc_volumen
             n_instances
+
+
         end
 
         #sobrecargando método to_s para un correcto formateo de la cadena
@@ -66,10 +68,12 @@ module Parking
         def <=>(other)
             @volumen <=> other.calc_volumen
         end
+
         
+
+        
+    end # end of class Vehiculo
     
-    end
-    
-end
+end  # end of module Parking
     
     

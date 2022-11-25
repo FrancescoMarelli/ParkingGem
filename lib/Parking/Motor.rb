@@ -57,5 +57,5 @@ module Parking
             @n_seats <=> other.n_seats
         end
 
-    end
-end
+    end # end of class Motor
+end # end of module Parking

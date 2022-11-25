@@ -5,6 +5,8 @@ module Parking
 
         #getter de n_floors_long_stay
         attr_reader :n_floors_long_stay
+
+        #Constructor de las Estaciones de Tren
         def initialize(id, name, desc, type, n_spots, accessibility, security, spots, min_spots, n_minspots, ppm, distance_center, vehicles, h_in, h_out, n_floors_long_stay) #
            super(id, name, desc, type, n_spots, accessibility, security, spots, min_spots, n_minspots, ppm, distance_center, vehicles, h_in, h_out)
            if((n_floors_long_stay.is_a? Integer) and (n_floors_long_stay >= 0)) then 

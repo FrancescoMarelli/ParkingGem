@@ -127,11 +127,12 @@ RSpec.describe Parking do
   
               it "Tiene unos métodos de Enumerable" do
                 expect(@p.is_a? Enumerable).to eq(true)
+                expect(@airport.is_a? Enumerable).to eq(true)
                 expect(@p.count).to eq(4)
                 expect(@p.all? { |v| v.is_a? Parking::Vehiculo or Parking::Motor}).to eq(true)
                 expect(@p.include?(@v)).to eq(true)
                 expect(@airport.member?(@v3)).to eq(true)
-                expect(@airport.find { |v| v.is_a? Parking::Vehiculo}).to eq(@v)
+                expect(@airport.find { |v| v.is_a? Parking::Vehiculo}).to eq(@v)      
               end
              end #end context Funciones data
             end #end Tiene una clase para  almacenar datos de Aparcamiento
@@ -154,6 +155,8 @@ RSpec.describe Parking do
                 expect(@train_station).kind_of? Parking::TrainStation
                 expect(@train_station.class.superclass).to eq(Parking::Data)
                 expect(Parking::TrainStation.superclass.superclass).to eq(Object)
+                expect(Parking::TrainStation.superclass.superclass.superclass).to eq(BasicObject)
+                expect(Parking::TrainStation.ancestors).to eq([Parking::TrainStation, Parking::Data, Enumerable, Object, Kernel, BasicObject])
               end
   
   
@@ -171,14 +174,19 @@ RSpec.describe Parking do
           it "Existe un método que averigue si el aparcamiento cumple con las plazas minusvalidos minima" do
             expect(@statusp2.is_good_for_disabled?).to eq(true)
             expect(@status.is_good_for_disabled?).to eq(false)
+          
           end
   
           it "Existe un método que calcula cuantos vehiculos están aparcados en un parking" do
             expect(@status.total_vehicles).to eq(4)
+            expect(@status.total_vehicles).not_to eq(nil)
+
           end
   
           it "Existe un método que calcula las plazas minusvalidas libres" do
             expect(@status.free_spots_for_disabled).to eq(2)
+            expect(@status.free_spots_for_disabled).not_to eq(nil)
+
           end
   
         end #end context funcionalidades

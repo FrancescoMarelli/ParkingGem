@@ -5,6 +5,7 @@ module Parking
     class Data
 
     include Enumerable
+    include Comparable
         # Getters de atributos de clase
         attr_reader :accessibility, :security, :id, :name, :desc, :type, :n_freespots, :n_spots, :oc_spots, :distance_center, :n_minspots, :min_spots, :ppm,:vehicles,  :h_in, :h_out
 
@@ -46,7 +47,7 @@ module Parking
             end
 
            
-             if (type.is_a? String) ||  (type  == ('autobuses' || 'bicicletas' || 'coches' || 'motos')) then
+            if (type.is_a? String) ||  (type  == ('autobuses' || 'bicicletas' || 'coches' || 'motos')) then
                      @type = type
             else
                     raise Exception.new "Wrong Argument: Possible arguments are: autobuses, bicicletas, coches, motos "
@@ -67,11 +68,8 @@ module Parking
             else
                 raise Exception.new "Wrong Argument: it has to be an Array"
             end
-            
-            #
-            #   P9
-            #
-              # min_spots stores dimensions of a minusvalid parkingspot
+
+            # min_spots stores dimensions of a minusvalid parkingspot
             if (min_spots.is_a? Array) then
                 @min_spots = min_spots
             else
@@ -158,6 +156,22 @@ module Parking
             @vehicles.each { |v| yield v }
         end
 
+        #P10
+        def sost_index
+            if((@distance_center <= 30) && (@ppm >= 0.5)) then
+                return 1
+            elsif (((@distance_center > 30) && (@distance_center < 40)) && ((@ppm < 0.5) && (@ppm >= 0.1))) then
+                return 2
+            elsif (@distance_center >= 40 && @ppm < 0.1) then
+                return 3
+            else
+                raise Exception.new "Wrong Argument: check table parameters"
+            end
+        end
+
+        def <=>(other)
+           sost_index <=> other.sost_index
+        end
     end #class Data
 end #module Parking
 

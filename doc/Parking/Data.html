@@ -76,6 +76,10 @@
     <li><span class="include">Enumerable</span>
   
   
+  
+    <li><span class="include">Comparable</span>
+  
+  
   </ul>
 </div>
 
@@ -88,6 +92,8 @@
     
     <li ><a href="#method-c-new">::new</a>
     
+    <li ><a href="#method-i-3C-3D-3E">#&lt;=&gt;</a>
+    
     <li ><a href="#method-i-calc_price">#calc_price</a>
     
     <li ><a href="#method-i-each">#each</a>
@@ -97,6 +103,8 @@
     <li ><a href="#method-i-park">#park</a>
     
     <li ><a href="#method-i-parking_time">#parking_time</a>
+    
+    <li ><a href="#method-i-sost_index">#sost_index</a>
     
     <li ><a href="#method-i-to_s">#to_s</a>
     
@@ -369,7 +377,7 @@
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File lib/Parking/Data.rb, line 12</span>
+            <pre><span class="ruby-comment"># File lib/Parking/Data.rb, line 13</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">id</span>, <span class="ruby-identifier">name</span>, <span class="ruby-identifier">desc</span>, <span class="ruby-identifier">type</span>, <span class="ruby-identifier">n_spots</span>, <span class="ruby-identifier">accessibility</span>, <span class="ruby-identifier">security</span>, <span class="ruby-identifier">spots</span>, <span class="ruby-identifier">min_spots</span>, <span class="ruby-identifier">n_minspots</span>, <span class="ruby-identifier">ppm</span>, <span class="ruby-identifier">distance_center</span>, <span class="ruby-identifier">vehicles</span>, <span class="ruby-identifier">h_in</span>, <span class="ruby-identifier">h_out</span>) <span class="ruby-comment">#</span>
   
     <span class="ruby-comment"># id is the id number of the parking</span>
@@ -407,7 +415,7 @@
     <span class="ruby-keyword">end</span>
 
    
-     <span class="ruby-keyword">if</span> (<span class="ruby-identifier">type</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">String</span>) <span class="ruby-operator">||</span>  (<span class="ruby-identifier">type</span>  <span class="ruby-operator">==</span> (<span class="ruby-string">&#39;autobuses&#39;</span> <span class="ruby-operator">||</span> <span class="ruby-string">&#39;bicicletas&#39;</span> <span class="ruby-operator">||</span> <span class="ruby-string">&#39;coches&#39;</span> <span class="ruby-operator">||</span> <span class="ruby-string">&#39;motos&#39;</span>)) <span class="ruby-keyword">then</span>
+    <span class="ruby-keyword">if</span> (<span class="ruby-identifier">type</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">String</span>) <span class="ruby-operator">||</span>  (<span class="ruby-identifier">type</span>  <span class="ruby-operator">==</span> (<span class="ruby-string">&#39;autobuses&#39;</span> <span class="ruby-operator">||</span> <span class="ruby-string">&#39;bicicletas&#39;</span> <span class="ruby-operator">||</span> <span class="ruby-string">&#39;coches&#39;</span> <span class="ruby-operator">||</span> <span class="ruby-string">&#39;motos&#39;</span>)) <span class="ruby-keyword">then</span>
              <span class="ruby-ivar">@type</span> = <span class="ruby-identifier">type</span>
     <span class="ruby-keyword">else</span>
             <span class="ruby-identifier">raise</span> <span class="ruby-constant">Exception</span>.<span class="ruby-identifier">new</span> <span class="ruby-string">&quot;Wrong Argument: Possible arguments are: autobuses, bicicletas, coches, motos &quot;</span>
@@ -428,11 +436,8 @@
     <span class="ruby-keyword">else</span>
         <span class="ruby-identifier">raise</span> <span class="ruby-constant">Exception</span>.<span class="ruby-identifier">new</span> <span class="ruby-string">&quot;Wrong Argument: it has to be an Array&quot;</span>
     <span class="ruby-keyword">end</span>
-    
-    <span class="ruby-comment">#</span>
-    <span class="ruby-comment">#   P9</span>
-    <span class="ruby-comment">#</span>
-      <span class="ruby-comment"># min_spots stores dimensions of a minusvalid parkingspot</span>
+
+    <span class="ruby-comment"># min_spots stores dimensions of a minusvalid parkingspot</span>
     <span class="ruby-keyword">if</span> (<span class="ruby-identifier">min_spots</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">Array</span>) <span class="ruby-keyword">then</span>
         <span class="ruby-ivar">@min_spots</span> = <span class="ruby-identifier">min_spots</span>
     <span class="ruby-keyword">else</span>
@@ -497,6 +502,39 @@
        </header>
 
     
+      <div id="method-i-3C-3D-3E" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">&lt;=&gt;</span><span
+            class="method-args">(other)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>sobrecarga comparador</p>
+          
+          
+
+          
+          <div class="method-source-code" id="3C-3D-3E-source">
+            <pre><span class="ruby-comment"># File lib/Parking/Data.rb, line 173</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">&lt;=&gt;</span>(<span class="ruby-identifier">other</span>)
+   <span class="ruby-identifier">sost_index</span> <span class="ruby-operator">&lt;=&gt;</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">sost_index</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
       <div id="method-i-calc_price" class="method-detail ">
         
         <div class="method-heading">
@@ -516,7 +554,7 @@
 
           
           <div class="method-source-code" id="calc_price-source">
-            <pre><span class="ruby-comment"># File lib/Parking/Data.rb, line 152</span>
+            <pre><span class="ruby-comment"># File lib/Parking/Data.rb, line 150</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">calc_price</span>
     <span class="ruby-ivar">@ppm</span>.<span class="ruby-identifier">to_f</span> <span class="ruby-operator">*</span> <span class="ruby-identifier">parking_time</span>.<span class="ruby-identifier">to_f</span>
 <span class="ruby-keyword">end</span></pre>
@@ -549,7 +587,7 @@
 
           
           <div class="method-source-code" id="each-source">
-            <pre><span class="ruby-comment"># File lib/Parking/Data.rb, line 157</span>
+            <pre><span class="ruby-comment"># File lib/Parking/Data.rb, line 155</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">each</span>    
     <span class="ruby-ivar">@vehicles</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">v</span><span class="ruby-operator">|</span> <span class="ruby-keyword">yield</span> <span class="ruby-identifier">v</span> }
 <span class="ruby-keyword">end</span></pre>
@@ -582,7 +620,7 @@
 
           
           <div class="method-source-code" id="occupiedSpots-source">
-            <pre><span class="ruby-comment"># File lib/Parking/Data.rb, line 123</span>
+            <pre><span class="ruby-comment"># File lib/Parking/Data.rb, line 121</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">occupiedSpots</span>
     <span class="ruby-ivar">@oc_spots</span> = <span class="ruby-ivar">@n_spots</span> <span class="ruby-operator">-</span> <span class="ruby-ivar">@n_freespots</span>
 <span class="ruby-keyword">end</span></pre>
@@ -615,7 +653,7 @@
 
           
           <div class="method-source-code" id="park-source">
-            <pre><span class="ruby-comment"># File lib/Parking/Data.rb, line 133</span>
+            <pre><span class="ruby-comment"># File lib/Parking/Data.rb, line 131</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">park</span>(<span class="ruby-identifier">vehicle</span>)
     <span class="ruby-keyword">if</span>(<span class="ruby-ivar">@n_freespots</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>) <span class="ruby-keyword">then</span>
         <span class="ruby-ivar">@vehicles</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">vehicle</span>)
@@ -654,12 +692,53 @@
 
           
           <div class="method-source-code" id="parking_time-source">
-            <pre><span class="ruby-comment"># File lib/Parking/Data.rb, line 144</span>
+            <pre><span class="ruby-comment"># File lib/Parking/Data.rb, line 142</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">parking_time</span>
     <span class="ruby-identifier">h_aux</span> = <span class="ruby-ivar">@h_out</span>.<span class="ruby-identifier">hour</span>.<span class="ruby-identifier">to_f</span> <span class="ruby-operator">-</span> <span class="ruby-ivar">@h_in</span>.<span class="ruby-identifier">hour</span>.<span class="ruby-identifier">to_f</span>
     <span class="ruby-identifier">m_aux</span> = <span class="ruby-ivar">@h_out</span>.<span class="ruby-identifier">min</span>.<span class="ruby-identifier">to_f</span> <span class="ruby-operator">-</span> <span class="ruby-ivar">@h_in</span>.<span class="ruby-identifier">min</span>.<span class="ruby-identifier">to_f</span>
     <span class="ruby-identifier">time</span> = ((<span class="ruby-identifier">h_aux</span> <span class="ruby-operator">*</span> <span class="ruby-value">60</span>) <span class="ruby-operator">+</span> <span class="ruby-identifier">m_aux</span>).<span class="ruby-identifier">to_f</span>
 
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-sost_index" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sost_index</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>P10</p>
+          
+          
+
+          
+          <div class="method-source-code" id="sost_index-source">
+            <pre><span class="ruby-comment"># File lib/Parking/Data.rb, line 160</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">sost_index</span>
+    <span class="ruby-keyword">if</span>((<span class="ruby-ivar">@distance_center</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-value">30</span>) <span class="ruby-operator">&amp;&amp;</span> (<span class="ruby-ivar">@ppm</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-value">0.5</span>)) <span class="ruby-keyword">then</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-value">1</span>
+    <span class="ruby-keyword">elsif</span> (((<span class="ruby-ivar">@distance_center</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">30</span>) <span class="ruby-operator">&amp;&amp;</span> (<span class="ruby-ivar">@distance_center</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">40</span>)) <span class="ruby-operator">&amp;&amp;</span> ((<span class="ruby-ivar">@ppm</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">0.5</span>) <span class="ruby-operator">&amp;&amp;</span> (<span class="ruby-ivar">@ppm</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-value">0.1</span>))) <span class="ruby-keyword">then</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-value">2</span>
+    <span class="ruby-keyword">elsif</span> (<span class="ruby-ivar">@distance_center</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-value">40</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@ppm</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">0.1</span>) <span class="ruby-keyword">then</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-value">3</span>
+    <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">Exception</span>.<span class="ruby-identifier">new</span> <span class="ruby-string">&quot;Wrong Argument: check table parameters&quot;</span>
+    <span class="ruby-keyword">end</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -690,7 +769,7 @@
 
           
           <div class="method-source-code" id="to_s-source">
-            <pre><span class="ruby-comment"># File lib/Parking/Data.rb, line 128</span>
+            <pre><span class="ruby-comment"># File lib/Parking/Data.rb, line 126</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">to_s</span>    
     <span class="ruby-node">&quot;#{@id} - #{@name} - #{@desc} - #{@type} - #{@n_spots} - #{@accessibility} - #{@security} - #{@spots[0]} - #{@spots[1]} - #{@spots[2]}, #{@min_spots[0]}, #{@min_spots[1]}, #{@min_spots[2]} , #{@n_minspots[3]}, #{@ppm}, #{@distance_center}, #{@vehicles}, #{@h_in}, #{@h_out}&quot;</span>
 <span class="ruby-keyword">end</span></pre>

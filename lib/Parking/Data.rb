@@ -169,6 +169,7 @@ module Parking
             end
         end
 
+        #sobrecarga comparador
         def <=>(other)
            sost_index <=> other.sost_index
         end

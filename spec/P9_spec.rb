@@ -152,6 +152,7 @@ RSpec.describe Parking do
 
               it "El aparcamiento tiene una función que calcule el porcentaje de plazas minusvalidas libres" do 
                 expect(@parking.collect {|p| (Parking::free_spots_for_disabled(p).to_f/p.n_minspots.to_f)}).to eq([1.0,1.0,1.0])
+                expect(@parking.collect {|p| (Parking::free_spots_for_disabled(p).to_f/p.n_minspots.to_f)}).not_to eq([0.0,1.0,1.0])
               end
 
 

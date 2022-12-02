@@ -131,6 +131,13 @@ RSpec.describe Parking do
               end
 
               # P10
+
+              it "El aparcamiento tiene un indice de sostenibilidad " do
+                expect(@airport.sost_index).to eq(1)
+                expect(@airport.sost_index).not_to eq(0)
+                expect(@p.sost_index).to eq(2)
+              end
+
               it "El aparcamiento libre con mayor tiene un indice de sotenibildad  " do 
                 expect(@parking.select{ |p| Parking::status(p) == "Parking still has empty spots"}.max).to eq(@q)
                 expect(@parking.select {|p| Parking::status(p) == "Parking is already full"}).not_to eq(@p)

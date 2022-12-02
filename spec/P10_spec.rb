@@ -129,40 +129,50 @@ RSpec.describe Parking do
                 expect(@airport.member?(@v3)).to eq(true)
                 expect(@airport.find { |v| v.is_a? Parking::Vehiculo}).to eq(@v)      
               end
-
-              # P10
-
+              
+              #
+              #
+              # EXPECTATIVAS P10
+              #
               it "El aparcamiento tiene un indice de sostenibilidad " do
                 expect(@airport.sost_index).to eq(1)
-                expect(@airport.sost_index).not_to eq(0)
+                expect(@airport.sost_index).not_to eq(-1)
                 expect(@p.sost_index).to eq(2)
+                expect(@p.sost_index).not_to eq(4)
+                expect(@p.sost_index.is_a? Integer).to eq(true)
+                expect(@train_station.sost_index).to eq(1)
+                
               end
 
               it "El aparcamiento libre con mayor tiene un indice de sotenibildad  " do 
-                expect(@parking.select{ |p| Parking::status(p) == "Parking still has empty spots"}.max).to eq(@q)
-                expect(@parking.select {|p| Parking::status(p) == "Parking is already full"}).not_to eq(@p)
+                expect(@parking.select{ |p| Parking::status(p) == Parking::IS_FREE}.max).to eq(@q)
+                expect(@parking.select {|p| Parking::status(p) == Parking::IS_COMPLETE}.max).not_to eq(@airport)
+                expect(@parking.select {|p| Parking::status(p) == Parking::IS_COMPLETE}.max).not_to eq(@q)
+
+
               end
 
 
               it "El aparcamiento con plazas minusvalido libres con mayor indice de sostenibilidad" do
                 expect(@parking.select{|p| Parking::free_spots_for_disabled(p) > 0}.max).to eq(@q)
                 expect(@parking.select{ |p| Parking::free_spots_for_disabled(p) > 0}.max).not_to eq(@airport)
+                expect(@parking.select{ |p| Parking::free_spots_for_disabled(p) > 0}.max).not_to eq(@p)
               end
               
-
 
               it "El aparcamiento tiene una función para calcular el porcentaje de ocupación" do
                 expect(@parking.collect { |p| (p.occupiedSpots.to_f/p.n_spots.to_f)}).to eq([0.75,0.0,0.0])
                 expect(@parking.collect { |p| (p.occupiedSpots.to_f/p.n_spots.to_f)}).not_to eq([0,0,0])
+                expect((@parking.collect { |p| (p.occupiedSpots.to_f/p.n_spots.to_f)}).is_a? Array).to eq(true)
+                expect((@parking.collect { |p| (p.occupiedSpots.to_f/p.n_spots.to_f)}).is_a? Numeric).to eq(false)
               end
 
 
               it "El aparcamiento tiene una función que calcule el porcentaje de plazas minusvalidas libres" do 
                 expect(@parking.collect {|p| (Parking::free_spots_for_disabled(p).to_f/p.n_minspots.to_f)}).to eq([1.0,1.0,1.0])
                 expect(@parking.collect {|p| (Parking::free_spots_for_disabled(p).to_f/p.n_minspots.to_f)}).not_to eq([0.0,1.0,1.0])
+                expect((@parking.collect {|p| (Parking::free_spots_for_disabled(p).to_f/p.n_minspots.to_f)}).is_a? Array).to eq(true)
               end
-
-
 
              end #end context Funciones data
             end #end Tiene una clase para  almacenar datos de Aparcamiento
